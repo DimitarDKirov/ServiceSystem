@@ -38,12 +38,12 @@
         [MaxLength(1000)]
         public string Solution { get; set; }
 
-        public WarantyStatus WarantyStatus { get; set; }
+        public WarrantyStatus WarrantyStatus { get; set; }
 
         [MaxLength(50)]
-        public string WarantyCard { get; set; }
+        public string WarrantyCard { get; set; }
 
-        public DateTime? WarantyDate { get; set; }
+        public DateTime? WarrantyDate { get; set; }
 
         public decimal LabourPrice { get; set; }
 

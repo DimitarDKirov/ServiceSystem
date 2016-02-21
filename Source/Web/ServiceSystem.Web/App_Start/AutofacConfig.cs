@@ -53,8 +53,8 @@
             builder.Register(x => new HttpCacheService())
                 .As<ICacheService>()
                 .InstancePerRequest();
-            builder.Register(x => new IdentifierProvider())
-                .As<IIdentifierProvider>()
+            builder.Register(x => new PublicCodeProvider())
+                .As<IPublicCodeProvider>()
                 .InstancePerRequest();
 
             var servicesAssembly = Assembly.GetAssembly(typeof(ICategoriesService));

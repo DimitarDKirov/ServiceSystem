@@ -1,0 +1,41 @@
+﻿@model ServiceSystem.Web.ViewModels.ViewOrder.OrderViewModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Order details</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                Order number: @Model.Id / @Model.CreatedOn.ToShortDateString()
+            </div>
+            <div class="col-md-4">
+                Public order check number: @Model.OrderPublicId
+            </div>
+            <div class="col-md-3">
+                Warranty status:@Model.WarrantyStatus
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Customer: @Model.Customer.Name
+            </div>
+            <div class="col-md-5">
+                Phone: @Model.Customer.Phone
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">Device details</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">@Model.Unit.Brand</div>
+            <div class="col-md-2">Model: @Model.Unit.Model</div>
+            <div class="col-md-3">Category: @Model.Unit.Category</div>
+            <div class="col-md-5">Serial number/IMEI: @Model.Unit.SerialNumber</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">Problem:</div>
+            <div class="col-md-11">@Model.ProblemDescription</div>
+        </div>
+    </div>
+</div>

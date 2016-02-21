@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceSystem.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ServiceSystem.Services.Data
 {
     public interface ICategoriesService
     {
+        IQueryable<Category> GetAllForCombo();
     }
 }

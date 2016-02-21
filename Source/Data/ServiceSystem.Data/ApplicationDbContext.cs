@@ -17,7 +17,22 @@
         {
         }
 
-        
+        public virtual IDbSet<Order> Orders { get; set; }
+
+        public virtual IDbSet<Brand> Brand { get; set; }
+
+        public virtual IDbSet<Category> Category { get; set; }
+
+        public virtual IDbSet<Customer> Customer { get; set; }
+
+        public virtual IDbSet<Note> Note { get; set; }
+
+        public virtual IDbSet<Part> Parts { get; set; }
+
+        public virtual IDbSet<PartsInOrder> PartsInOrders { get; set; }
+
+        public virtual IDbSet<Unit> Units { get; set; }
+
 
         public static ApplicationDbContext Create()
         {

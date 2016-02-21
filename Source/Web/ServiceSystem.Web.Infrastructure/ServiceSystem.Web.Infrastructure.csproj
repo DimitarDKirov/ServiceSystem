@@ -7,8 +7,8 @@
     <ProjectGuid>{6813DC53-5EEE-4507-8604-5301EE51A0D3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcTemplate.Web.Infrastructure</RootNamespace>
-    <AssemblyName>MvcTemplate.Web.Infrastructure</AssemblyName>
+    <RootNamespace>ServiceSystem.Web.Infrastructure</RootNamespace>
+    <AssemblyName>ServiceSystem.Web.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

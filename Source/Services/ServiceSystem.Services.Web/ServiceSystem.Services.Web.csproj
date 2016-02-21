@@ -7,8 +7,8 @@
     <ProjectGuid>{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcTemplate.Services.Web</RootNamespace>
-    <AssemblyName>MvcTemplate.Services.Web</AssemblyName>
+    <RootNamespace>ServiceSystem.Services.Web</RootNamespace>
+    <AssemblyName>ServiceSystem.Services.Web</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,9 +45,9 @@
   <ItemGroup>
     <Compile Include="HttpCacheService.cs" />
     <Compile Include="ICacheService.cs" />
-    <Compile Include="IdentifierProvider.cs" />
-    <Compile Include="IIdentifierProvider.cs" />
+    <Compile Include="IPublicCodeProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicCodeProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

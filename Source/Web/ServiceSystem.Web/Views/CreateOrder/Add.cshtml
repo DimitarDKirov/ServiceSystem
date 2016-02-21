@@ -1,0 +1,129 @@
+﻿@model ServiceSystem.Web.ViewModels.CreateOrder.OrderCreateModel
+
+<h1>Create order</h1>
+<div>
+    @using (Html.BeginForm("Add", "CreateOrder", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary();
+        <div class="panel panel-default">
+            <div class="panel-heading">Unit Details</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Unit.CategoryId, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.Unit.CategoryId, Model.Categories, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Unit.CategoryId)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Unit.Brand, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @(Html
+                        .Kendo()
+                        .AutoCompleteFor(m => m.Unit.Brand)
+                        .MinLength(2)
+                        .DataSource(source =>
+                        {
+                            source
+                             .ServerFiltering(true)
+                             .Read(read =>
+                             {
+                                 read
+                                 .Action("Find", "Brands")
+                                 .Data("onAutoComplete");
+                             });
+                        }))
+                        @*@Html.EditorFor(m => m.Unit.Brand, new { @class = "form-control" })*@
+                        @Html.ValidationMessageFor(m => m.Unit.Brand)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Unit.Model, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Unit.Model, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Unit.Model)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Unit.SerialNumber, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Unit.SerialNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Unit.SerialNumber)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Customer Details</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Customer.Name, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Customer.Name)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Customer.Phone, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Customer.Phone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Customer.Phone)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Customer.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Customer.Email, new { @class = "form-control", type = "email" })
+                        @Html.ValidationMessageFor(m => m.Customer.Email)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Warranty Details</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.WarrantyCard, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.WarrantyCard, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.WarrantyCard)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.WarrantyDate, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => m.WarrantyDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.WarrantyDate)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.WarrantyStatus, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(m => m.WarrantyStatus, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.WarrantyStatus)
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Problem Description</div>
+                <div class="panel-body">
+                    @Html.TextAreaFor(m => m.ProblemDescription, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ProblemDescription)
+                </div>
+            </div>
+                <input type="Submit" value="Create" class="btn btn-primary" />
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function onAutoComplete() {
+            return {
+                brand: $("#Unit_Brand").val()
+            }
+        }
+    </script>
+}
