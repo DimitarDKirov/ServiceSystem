@@ -14,5 +14,7 @@ namespace ServiceSystem.Services.Data
         Order AddPublicId(int orderId, string code);
 
         Order GetById(int id);
+
+        IQueryable<Order> ListPaged(int page);
     }
 }

@@ -26,5 +26,7 @@
             get { return this.units; }
             set { this.units = value; }
         }
+
+        public object Mapper { get; set; }
     }
 }

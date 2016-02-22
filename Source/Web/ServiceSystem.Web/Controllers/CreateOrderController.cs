@@ -86,7 +86,7 @@
                 this.Cache.Get(
                     "categoriesCombo",
                     () => this.categoriesService
-                    .GetAllForCombo()
+                    .GetAll()
                     .Select(c => new SelectListItem
                     {
                         Value = c.Id.ToString(),

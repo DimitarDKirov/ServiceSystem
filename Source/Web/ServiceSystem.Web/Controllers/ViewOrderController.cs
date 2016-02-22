@@ -8,6 +8,7 @@
     using ServiceSystem.Services.Data;
     using ServiceSystem.Web.ViewModels.CreateOrder;
     using ViewModels.ViewOrder;
+    using System.Net;
     public class ViewOrderController : BaseController
     {
         private IOrderService orderService;
@@ -23,6 +24,7 @@
             if (order == null)
             {
                 this.TempData["Error"] = "Order can not be found";
+                this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return this.View();
             }
 
