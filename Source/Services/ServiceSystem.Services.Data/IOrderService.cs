@@ -20,5 +20,7 @@ namespace ServiceSystem.Services.Data
         int CountPending();
 
         Order Update(Order order);
+
+        IQueryable<Order> GetAll();
     }
 }

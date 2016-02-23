@@ -219,6 +219,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\OrdersGridController.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="ViewModels\ListOrders\ListOrdersViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\CreateOrder\OrderCreateModel.cs" />
+    <Compile Include="ViewModels\OrdersGrid\OrdersGridViewModel.cs" />
     <Compile Include="ViewModels\ViewOrder\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\UpdateOrder\UpdateOrderModel.cs" />
     <Compile Include="ViewModels\ViewOrder\OrderViewModel.cs" />
@@ -497,6 +499,7 @@
     <Content Include="Views\UpdateOrder\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\OrdersGrid\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

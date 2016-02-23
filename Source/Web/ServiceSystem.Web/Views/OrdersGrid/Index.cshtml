@@ -1,0 +1,45 @@
+﻿<h2>All orders</h2>
+
+@(Html.Kendo().Grid<ServiceSystem.Web.ViewModels.OrdersGrid.OrdersGridViewModel>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.Id).Filterable(ftb => ftb.Cell(cell => cell.Operator("eq"))).Width("12%");
+        columns.Bound(c => c.CreatedOn).Format("{0:dd.MM.yyyy}").Width("12%");
+        columns.Bound(c => c.OrderPublicId).Hidden(true);
+        columns.Bound(c => c.Status).Width("12%");
+        columns.Bound(c => c.WarrantyStatus).Width("12%");
+        columns.Bound(c => c.WarrantyCard).Hidden(true);
+        columns.Bound(c => c.WarrantyDate).Format("{0:dd.MM.yyyy}").Hidden(true);
+        columns.Bound(c => c.RepairStartDate).Format("{0:dd.MM.yyyy}").Hidden(true);
+        columns.Bound(c => c.RepairEndDate).Format("{0:dd.MM.yyyy}").Hidden(true);
+        columns.Bound(c => c.DeliverDate).Format("{0:dd.MM.yyyy}").Hidden(true); ;
+        columns.Bound(c => c.ProblemDescription);
+        columns.Bound(c => c.Solution);
+        columns.Bound(c => c.LabourPrice).Width("12%");
+        columns.Command(c => c.Custom("View").Click("showDetails")).Width("8%");
+    })
+    .ColumnMenu()
+    .Resizable(resize => resize.Columns(true))
+    .Pageable()
+    .Sortable(sortable =>
+    {
+        sortable.SortMode(GridSortMode.SingleColumn);
+    })
+    .Filterable(ftb => ftb.Mode(GridFilterMode.Row))
+    .Scrollable()
+    .Selectable()
+    .DataSource(dataSource => dataSource
+    .Ajax()
+    .Read(read => read.Action("Orders_Read", "OrdersGrid"))
+    )
+)
+
+@section scripts{
+    <script>
+        function showDetails(e) {
+            var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            document.location = "/Order/View/Details/" + dataItem.Id;
+        }
+    </script>
+    }
