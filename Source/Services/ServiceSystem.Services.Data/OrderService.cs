@@ -1,5 +1,6 @@
 ﻿namespace ServiceSystem.Services.Data
 {
+    using System;
     using System.Linq;
     using Common;
     using ServiceSystem.Data.Common;
@@ -40,6 +41,13 @@
             this.ordersRepository.Add(order);
             this.ordersRepository.Save();
             return order;
+        }
+
+        public void Delete(int id)
+        {
+            var order = this.ordersRepository.GetById(id);
+            this.ordersRepository.Delete(order);
+            this.ordersRepository.Save();
         }
 
         public IQueryable<Order> GetAll()

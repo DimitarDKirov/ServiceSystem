@@ -1,0 +1,42 @@
+﻿<h2>Orders Update/View</h2>
+
+@(Html.Kendo().Grid<ServiceSystem.Web.Areas.Administration.Models.Orders.OrdersModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id).Filterable(ftb => ftb.Cell(cell => cell.Operator("eq"))).Width("12%");
+          columns.Bound(c => c.CreatedOn).Format("{0:dd.MM.yyyy}").Width("12%");
+          columns.Bound(c => c.OrderPublicId).Hidden(true);
+          columns.Bound(c => c.Status).Width("12%");
+          columns.Bound(c => c.WarrantyStatus).Width("12%");
+          columns.Bound(c => c.WarrantyCard).Hidden(true);
+          columns.Bound(c => c.WarrantyDate).Format("{0:dd.MM.yyyy}").Hidden(true);
+          columns.Bound(c => c.RepairStartDate).Format("{0:dd.MM.yyyy}").Hidden(true);
+          columns.Bound(c => c.RepairEndDate).Format("{0:dd.MM.yyyy}").Hidden(true);
+          columns.Bound(c => c.DeliverDate).Format("{0:dd.MM.yyyy}").Hidden(true); ;
+          columns.Bound(c => c.ProblemDescription);
+          columns.Bound(c => c.Solution);
+          columns.Bound(c => c.LabourPrice);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width("15%");
+      })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .ColumnMenu()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .PageSize(5)
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Orders_Read", "Orders"))
+          .Create(create => create.Action("Orders_Create", "Orders"))
+          .Update(update => update.Action("Orders_Update", "Orders"))
+          .Destroy(destroy => destroy.Action("Orders_Destroy", "Orders"))
+      )
+)

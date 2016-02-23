@@ -1,0 +1,41 @@
+﻿@model ServiceSystem.Web.Areas.Administration.Models.Orders.OrdersModel
+
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id, new { @class = "col-md-2" })
+        @Html.EditorFor(m => m.Id, new { htmlAttributes = new { @class = "form-control col-md-9", disabled = "disabled" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CreatedOn, new { @class = "col-md-2" })
+        @Html.EditorFor(m => m.CreatedOn, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.WarrantyStatus, new { @class = "col-md-2" })
+        @Html.EnumDropDownListFor(m => m.WarrantyStatus, new { @class = "form-control col-md-9" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Status, new { @class = "col-md-2" })
+        @Html.EnumDropDownListFor(m => m.Status, new { @class = "form-control col-md-9" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProblemDescription, new { @class = "col-md-2" })
+        @Html.EditorFor(m => m.ProblemDescription, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Solution, new { @class = "col-md-2" })
+        @Html.EditorFor(m => m.Solution, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LabourPrice, new { @class = "col-md-2" })
+        @Html.EditorFor(m => m.LabourPrice, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RepairStartDate, new { @class = "col-md-2" })
+        @Html.EditorFor(m => m.RepairStartDate, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DeliverDate, new { @class = "col-md-2" })
+        @Html.EditorFor(m => m.DeliverDate, new { htmlAttributes = new { @class = "form-control col-md-9" } })
+    </div>
+</div>
+
