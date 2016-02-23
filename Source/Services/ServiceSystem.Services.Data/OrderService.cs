@@ -64,5 +64,11 @@
 
             return orders;
         }
+
+        public Order Update(Order order)
+        {
+            this.ordersRepository.Save();
+            return order;
+        }
     }
 }

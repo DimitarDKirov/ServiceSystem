@@ -1,0 +1,45 @@
+﻿@model ServiceSystem.Web.ViewModels.ViewOrder.OrderDetailsViewModel
+<h2>Order @Model.Id</h2>
+@Html.Action("CommonDetails", new { id = Model.Id })
+
+<div class="panel panel-info">
+    <div class="panel-heading">Problem</div>
+    <div class="panel-body">@Model.ProblemDescription</div>
+</div>
+
+@if (Model.Solution != null)
+{
+    <div class="panel panel-info">
+        <div class="panel-heading">Solution</div>
+        <div class="panel-body">@Model.Solution</div>
+    </div>
+}
+
+@if (!Model.IsAssignable)
+{
+    <div class="row">
+        <div class="col-md-6">@Html.LabelFor(m=>m.User): @Html.DisplayFor(m=>m.User)</div>
+        <div class="col-md-6">@Html.LabelFor(m => m.LabourPrice): @Html.DisplayFor(m => m.LabourPrice)</div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-offset-1">
+        @if (Model.IsAssignable)
+        {
+            @Html.ActionLink("Assign", "Assign", "UpdateOrder", new { id = Model.Id }, new { @class = "btn btn-warning" });
+        }
+        @if (Model.IsDeliverable)
+        {
+            @Html.ActionLink("Deliver!", "Deliver", "UpdateOrder", new { id = Model.Id }, new { @class = "btn btn-warning" });
+        }
+        @if (Model.IsEditable)
+        {
+            @Html.ActionLink("Update", "Edit", "UpdateOrder", new { id = Model.Id }, new { @class = "btn btn-info" });
+        }
+    </div>
+</div>
+
+
+
+

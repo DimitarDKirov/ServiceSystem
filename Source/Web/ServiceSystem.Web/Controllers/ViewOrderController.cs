@@ -36,7 +36,7 @@
             return this.View(orderViewModel);
         }
 
-        public ActionResult FullInfo(int id)
+        public ActionResult Details(int id)
         {
             var order = this.orderService.GetById(id);
             if (order == null)
@@ -53,7 +53,7 @@
                 orderViewModel.IsAssignable = true;
                 orderViewModel.IsEditable = false;
             }
-            else if (order.UserId == User.Identity.GetUserId())
+            else if (order.UserId == this.User.Identity.GetUserId())
             {
                 orderViewModel.IsAssignable = false;
                 orderViewModel.IsEditable = true;
@@ -70,6 +70,15 @@
             }
 
             return this.View(orderViewModel);
+        }
+
+        [ChildActionOnly]
+        public ActionResult CommonDetails(int id)
+        {
+            var order = this.orderService.GetById(id);
+            var orderViewModel = this.Mapper.Map<CommonDetailsViewModel>(order);
+
+            return this.PartialView("_OrderViewPartial", orderViewModel);
         }
     }
 }

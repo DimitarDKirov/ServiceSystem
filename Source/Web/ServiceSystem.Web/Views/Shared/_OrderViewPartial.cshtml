@@ -1,4 +1,4 @@
-﻿@model ServiceSystem.Web.ViewModels.OrderDetailsViewModel
+﻿@model ServiceSystem.Web.ViewModels.CommonDetailsViewModel
 
 <div class="panel panel-primary">
     <div class="panel-heading">Order details</div>
@@ -19,7 +19,7 @@
                 @Html.LabelFor(m=>m.Customer.Name): @Html.DisplayFor(m => m.Customer.Name)
             </div>
             <div class="col-md-5">
-                @Html.LabelFor(m => m.Customer.Email): @Html.DisplayFor(m => m.Customer.Phone)
+                @Html.LabelFor(m => m.Customer.Phone): @Html.DisplayFor(m => m.Customer.Phone)
             </div>
         </div>
         <div class="row">

@@ -8,10 +8,19 @@
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
             routes.MapRoute(
-                name: "JokePage",
-                url: "Joke/{id}",
-                defaults: new { controller = "Jokes", action = "ById" });
+                name: "OrderList",
+                url: "Order/List/{action}",
+                defaults: new { controller = "ListOrders", action = "Pending" });
+            routes.MapRoute(
+               name: "OrderUpdate",
+               url: "Order/Update/{action}/{id}",
+               defaults: new { controller = "UpdateOrder", action = "Pending" });
+            routes.MapRoute(
+               name: "OrderView",
+               url: "Order/View/{action}/{id}",
+               defaults: new { controller = "ViewOrder", action = "Details" });
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

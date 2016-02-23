@@ -4,22 +4,22 @@
     <div class="panel-heading">Order details</div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3">
-                Order number: @Model.Id / @Model.CreatedOn.ToShortDateString()
-            </div>
             <div class="col-md-4">
-                Public order check number: @Model.OrderPublicId
+                <strong>Order number: </strong> @Model.Id / @Model.CreatedOn.ToShortDateString()
             </div>
             <div class="col-md-3">
-                Warranty status:@Model.WarrantyStatus
+                <strong>Warranty status: </strong>@Model.WarrantyStatus
+            </div>
+            <div class="col-md-5">
+                <strong>Public order check number: </strong> @Model.OrderPublicId
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                Customer: @Model.Customer.Name
+            <div class="col-md-4">
+                <strong>Customer: </strong> @Model.Customer.Name
             </div>
-            <div class="col-md-5">
-                Phone: @Model.Customer.Phone
+            <div class="col-md-8">
+                <strong>Phone: </strong> @Model.Customer.Phone
             </div>
         </div>
     </div>
@@ -28,13 +28,12 @@
     <div class="panel-heading">Device details</div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-2">@Model.Unit.Brand</div>
-            <div class="col-md-2">Model: @Model.Unit.Model</div>
-            <div class="col-md-3">Category: @Model.Unit.Category</div>
-            <div class="col-md-5">Serial number/IMEI: @Model.Unit.SerialNumber</div>
+            <div class="col-md-4"><strong>@Model.Unit.Brand</strong> | @Model.Unit.Model</div>
+            <div class="col-md-3"><strong>Category: </strong> @Model.Unit.Category</div>
+            <div class="col-md-5"><strong>Serial number/IMEI:</strong> @Model.Unit.SerialNumber</div>
         </div>
         <div class="row">
-            <div class="col-md-1">Problem:</div>
+            <div class="col-md-1"><strong>Problem:</strong></div>
             <div class="col-md-11">@Model.ProblemDescription</div>
         </div>
     </div>

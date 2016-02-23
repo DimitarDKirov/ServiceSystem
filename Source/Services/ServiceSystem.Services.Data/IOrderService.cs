@@ -18,5 +18,7 @@ namespace ServiceSystem.Services.Data
         IQueryable<Order> ListPaged(int page);
 
         int CountPending();
+
+        Order Update(Order order);
     }
 }

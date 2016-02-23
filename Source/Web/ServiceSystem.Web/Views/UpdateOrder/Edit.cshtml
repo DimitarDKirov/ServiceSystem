@@ -1,0 +1,36 @@
+﻿@model ServiceSystem.Web.ViewModels.UpdateOrder.UpdateOrderModel
+<h2>Order @Model.Id</h2>
+@Html.Action("CommonDetails", "ViewOrder", new { id = Model.Id })
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-inline">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel panel-info">
+            <div class="panel-heading">Problem</div>
+            <div class="panel-body">@Html.EditorFor(m => m.ProblemDescription, new { htmlAttributes = new { @class = "form-control" } })</div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">Solution</div>
+            <div class="panel-body">@Html.EditorFor(m => m.Solution, new { htmlAttributes = new { @class = "form-control" } })</div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                @Html.LabelFor(m => m.WarrantyStatus): @Html.EnumDropDownListFor(m => m.WarrantyStatus, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(m => m.Status): @Html.EnumDropDownListFor(m => m.Status, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-5">
+                @Html.LabelFor(m => m.LabourPrice): @Html.EditorFor(m => m.LabourPrice, new { htmlAttributes = new { @class = "form-control" } }) BGN
+            </div>
+            <div class="form-group col-md-1">
+                <input type="submit" value="Save" class="btn btn-primary form-control"/>
+            </div>
+        </div>
+    </div>
+}
