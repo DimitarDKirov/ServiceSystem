@@ -9,6 +9,10 @@
     using ServiceSystem.Web.ViewModels.CreateOrder;
     using ViewModels.ViewOrder;
     using System.Net;
+    using ViewModels;
+    using Data.Models;
+    using Microsoft.AspNet.Identity;
+
     public class ViewOrderController : BaseController
     {
         private IOrderService orderService;
@@ -28,8 +32,44 @@
                 return this.View();
             }
 
-            var orderView = this.Mapper.Map<OrderViewModel>(order);
-            return this.View(orderView);
+            var orderViewModel = this.Mapper.Map<OrderViewModel>(order);
+            return this.View(orderViewModel);
+        }
+
+        public ActionResult FullInfo(int id)
+        {
+            var order = this.orderService.GetById(id);
+            if (order == null)
+            {
+                this.TempData["Error"] = "Order can not be found";
+                this.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return this.View();
+            }
+
+            var orderViewModel = this.Mapper.Map<OrderDetailsViewModel>(order);
+            orderViewModel.IsDeliverable = false;
+            if (order.Status == Status.Pending)
+            {
+                orderViewModel.IsAssignable = true;
+                orderViewModel.IsEditable = false;
+            }
+            else if (order.UserId == User.Identity.GetUserId())
+            {
+                orderViewModel.IsAssignable = false;
+                orderViewModel.IsEditable = true;
+            }
+            else
+            {
+                orderViewModel.IsAssignable = false;
+                orderViewModel.IsEditable = false;
+            }
+
+            if (order.Status == Status.Ready)
+            {
+                orderViewModel.IsDeliverable = true;
+            }
+
+            return this.View(orderViewModel);
         }
     }
 }

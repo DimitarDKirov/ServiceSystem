@@ -11,6 +11,7 @@
     public class OrderCreateModel
     {
         [Display(Name = "Warranty")]
+        [EnumDataType(typeof(WarrantyStatus), ErrorMessage = "Warranty status is required")]
         public WarrantyStatus WarrantyStatus { get; set; }
 
         [MaxLength(50)]

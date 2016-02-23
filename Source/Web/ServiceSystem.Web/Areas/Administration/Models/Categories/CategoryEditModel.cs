@@ -1,12 +1,8 @@
 ﻿namespace ServiceSystem.Web.Areas.Administration.Models.Categories
 {
+    using System.ComponentModel.DataAnnotations;
     using Data.Models;
     using Infrastructure.Mapping;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
 
     public class CategoryEditModel:IMapFrom<Category>
     {

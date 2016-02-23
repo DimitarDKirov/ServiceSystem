@@ -1,0 +1,32 @@
+﻿@model ServiceSystem.Web.ViewModels.OrderDetailsViewModel
+<h2>Order @Model.Id</h2>
+@Html.Partial("_OrderViewPartial", Model)
+
+<div class="panel panel-info">
+    <div class="panel-heading">Problem</div>
+    <div class="panel-body">@Model.ProblemDescription</div>
+</div>
+
+@if(Model.Solution != null)
+{
+<div class="panel panel-info">
+    <div class="panel-heading">Solution</div>
+    <div class="panel-body">@Model.Solution</div>
+</div>
+}
+
+@if(!Model.IsAssignable)
+{
+    <div class="row">
+        <div class="col-md-6">Enginner: </div>
+        <div class="col-md-6">@Html.LabelFor(m=>m.LabourPrice): @Html.DisplayFor(m => m.LabourPrice)</div>
+    </div>
+}
+
+@Model.IsAssignable
+@Model.IsDeliverable
+@Model.IsEditable
+
+
+
+

@@ -56,7 +56,7 @@
                 {
                     Customer = customer,
                     ProblemDescription = model.ProblemDescription,
-                    Status = Status.Accepted,
+                    Status = Status.Pending,
                     Unit = unit,
                     WarrantyStatus = model.WarrantyStatus,
                     WarrantyCard = model.WarrantyCard,

@@ -26,8 +26,6 @@
 
         public string WarrantyCard { get; set; }
 
-        public int MyProperty { get; set; }
-
         [Display(Name = "Problem")]
         public string ProblemDescription { get; set; }
     }

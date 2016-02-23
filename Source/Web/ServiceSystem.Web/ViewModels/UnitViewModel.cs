@@ -1,4 +1,4 @@
-﻿namespace ServiceSystem.Web.ViewModels.ViewOrder
+﻿namespace ServiceSystem.Web.ViewModels
 {
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;

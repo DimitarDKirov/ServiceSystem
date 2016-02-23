@@ -210,6 +210,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\CreateOrderController.cs" />
+    <Compile Include="Controllers\EditOrderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListOrdersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -229,11 +230,15 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\CreateOrder\CategoriesComboModel.cs" />
     <Compile Include="ViewModels\CreateOrder\CustomerCreateModel.cs" />
-    <Compile Include="ViewModels\ViewOrder\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\ListOrders\ListedOrderViewModel.cs" />
+    <Compile Include="ViewModels\ListOrders\ListedUnitViewModel.cs" />
+    <Compile Include="ViewModels\ListOrders\ListOrdersViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\CreateOrder\OrderCreateModel.cs" />
+    <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\ViewOrder\OrderViewModel.cs" />
     <Compile Include="ViewModels\CreateOrder\UnitCreateModel.cs" />
-    <Compile Include="ViewModels\ViewOrder\UnitViewModel.cs" />
+    <Compile Include="ViewModels\UnitViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
@@ -484,6 +489,9 @@
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\ListOrders\Pending.cshtml" />
+    <Content Include="Views\ViewOrder\FullInfo.cshtml" />
+    <Content Include="Views\Shared\_OrderViewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -506,6 +514,7 @@
     <Folder Include="Content\Kendo\Silver\" />
     <Folder Include="Content\Kendo\textures\" />
     <Folder Include="Content\Kendo\Uniform\" />
+    <Folder Include="ViewModels\EditOrder\" />
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

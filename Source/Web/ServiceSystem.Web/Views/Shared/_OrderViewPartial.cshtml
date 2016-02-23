@@ -1,0 +1,56 @@
+﻿@model ServiceSystem.Web.ViewModels.OrderDetailsViewModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Order details</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+               @Html.LabelFor(m=>m.Id): @Html.DisplayFor(m=>m.Id) / @Model.CreatedOn.ToShortDateString()
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m=>m.WarrantyStatus): @Html.DisplayFor(m=>m.WarrantyStatus)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m=>m.Status): @Html.DisplayFor(m => m.Status)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m=>m.Customer.Name): @Html.DisplayFor(m => m.Customer.Name)
+            </div>
+            <div class="col-md-5">
+                @Html.LabelFor(m => m.Customer.Email): @Html.DisplayFor(m => m.Customer.Phone)
+            </div>
+        </div>
+        <div class="row">
+            @if (Model.RepairStartDate != null)
+            {
+            <div class="col-md-4">
+                @Html.LabelFor(m=>m.RepairStartDate): @Html.DisplayFor(m=>m.RepairStartDate)
+            </div>
+            }
+            @if (Model.RepairEndDate != null)
+            {
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.RepairEndDate): @Html.DisplayFor(m => m.RepairEndDate)
+                </div>
+            }
+            @if (Model.DeliverDate != null)
+            {
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.DeliverDate): @Html.DisplayFor(m => m.DeliverDate)
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">Device details</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">@Html.DisplayFor(m=>m.Unit.Brand) @Html.LabelFor(m=>m.Unit.Model): @Html.DisplayFor(m => m.Unit.Model)</div>
+            <div class="col-md-4">@Html.LabelFor(m=>m.Unit.Category): @Html.DisplayFor(m=>m.Unit.Category)</div>
+            <div class="col-md-4">@Html.LabelFor(m=>m.Unit.SerialNumber): @Html.DisplayFor(m=>m.Unit.SerialNumber)</div>
+        </div>
+    </div>
+</div>

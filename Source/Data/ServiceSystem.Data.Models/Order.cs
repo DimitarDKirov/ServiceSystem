@@ -3,8 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using ServiceSystem.Data.Common.Models;
-    using ServiceSystem.Data.Models;
+    using Common.Models;
 
     public class Order : BaseModel<int>
     {
@@ -25,9 +24,11 @@
 
         public DateTime? RepairEndDate { get; set; }
 
-        public DateTime? UnitTakenOutDate { get; set; }
+        public DateTime? DeliverDate { get; set; }
 
-        public ApplicationUser ServicedBy { get; set; }
+        public string UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         public Status Status { get; set; }
 

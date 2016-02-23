@@ -1,4 +1,4 @@
-﻿namespace ServiceSystem.Web.ViewModels.ViewOrder
+﻿namespace ServiceSystem.Web.ViewModels
 {
     using ServiceSystem.Data.Models;
     using ServiceSystem.Web.Infrastructure.Mapping;

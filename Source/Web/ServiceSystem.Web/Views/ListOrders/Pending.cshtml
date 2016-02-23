@@ -1,0 +1,63 @@
+﻿@model ServiceSystem.Web.ViewModels.ListOrders.ListOrdersViewModel
+
+@{
+    ViewBag.Title = "Pending orders";
+}
+<h2>Orders with status pending</h2>
+
+<table class="table">
+    <tr>
+        <th>Order</th>
+        <th>From date</th>
+        <th>Warranty</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Problem</th>
+    </tr>
+    @foreach (var order in Model.Orders)
+    {
+        <tr>
+            <td><a href="~/ViewOrder/FullInfo/@order.Id">@order.Id</a></td>
+            <td>@order.CreatedOn.ToShortDateString()</td>
+            <td>@Html.DisplayFor(m => order.WarrantyStatus)</td>
+            <td>@Html.DisplayFor(m => order.Unit.Category)</td>
+            <td>@Html.DisplayFor(m => order.Unit.Brand)</td>
+            <td>@Html.DisplayFor(m => order.Unit.Model)</td>
+            <td>@Html.DisplayFor(m => order.ProblemDescription)</td>
+        </tr>
+    }
+</table>
+@if (Model.PagesNumber > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li>
+                    <a href="/ListOrders/Pending?page=@(Model.CurrentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.PagesNumber; i++)
+            {
+                var className = string.Empty;
+                if (Model.CurrentPage == i)
+                {
+                    className = "active";
+                }
+                <li class="@className"><a href="/ListOrders/Pending?page=@i">@i</a></li>
+            }
+            @if (Model.CurrentPage < Model.PagesNumber)
+            {
+                <li>
+                    <a href="/ListOrders/Pending?page=@(Model.CurrentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
