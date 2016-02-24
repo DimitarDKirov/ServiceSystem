@@ -18,10 +18,10 @@
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                         "~/Scripts/Kendo/kendo.all.min.js",
-                        //"~/Scripts/Kendo/kendo.autocomplete.min.js",
-                        //"~/Scripts/Kendo/kendo.datepicker.min.js",
-                        //"~/Scripts/Kendo/kendo.datetimepicker.min.js",
-                        //"~/Scripts/Kendo/kendo.grid.min.js",
+                        // "~/Scripts/Kendo/kendo.autocomplete.min.js",
+                        // "~/Scripts/Kendo/kendo.datepicker.min.js",
+                        // "~/Scripts/Kendo/kendo.datetimepicker.min.js",
+                        // "~/Scripts/Kendo/kendo.grid.min.js",
                         "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
         }
 

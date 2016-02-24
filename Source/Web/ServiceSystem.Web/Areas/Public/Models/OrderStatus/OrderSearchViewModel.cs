@@ -4,7 +4,7 @@
 
     public class OrderSearchViewModel
     {
-        [RegularExpression("/^[0-9]{1,}[a-zA-Z]{3}$/", ErrorMessage = "Input is not in the correct format")]
+        [RegularExpression("^[0-9]{1,}[a-zA-Z]{3}$", ErrorMessage = "Input is not in the correct format")]
         public string UserInput { get; set; }
 
         public string Result { get; set; }

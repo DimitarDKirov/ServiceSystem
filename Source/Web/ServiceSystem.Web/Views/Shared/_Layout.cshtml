@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - ServiceSystem</title>
+    <title>@ViewBag.Title - Service.com</title>
     @Styles.Render("~/Content/kendo-css");
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
@@ -18,49 +18,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("ServiceSystem", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Service.com", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-                </ul>
+                @Html.Partial("_PublicPartial")
                 @Html.Partial("_EngineersPartial")
                 @Html.Partial("_AdminPartial")
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("ServiceSystem", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    @{if (TempData["Success"] != null)
+    <div>
+        @{if (TempData["Success"] != null)
             {
-            <div class="alert alert-success text-center">@TempData["Success"]</div>
+                <div class="alert alert-success text-center">@TempData["Success"]</div>
+            }
+            else if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger text-center">@TempData["Error"]</div>
+            }
         }
-        else if (TempData["Error"] != null)
-        {
-            <div class="alert alert-danger text-center">@TempData["Error"]</div>
-        }
-    }
+    </div>
     <div class="container body-content">
         @RenderBody()
+    </div>
+    <div class="text-center">
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - ServiceSystem</p>
+            <p>&copy; @DateTime.Now.Year - Service.com</p>
         </footer>
     </div>
 

@@ -1,8 +1,8 @@
 ﻿@if (User.IsInRole("Engineer") || User.IsInRole("Administrator"))
 {
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Create order", "Index", "CreateOrder")</li>
-        <li>@Html.ActionLink("Pending orders", "Pending", "ListOrders")</li>
-        <li>@Html.ActionLink("All orders", "Index", "OrdersGrid")</li>
+        <li>@Html.ActionLink("Create order", "Index", "CreateOrder", new { area = "" }, null)</li>
+        <li>@Html.ActionLink("Pending orders", "Pending", "ListOrders", new { area = "" }, null)</li>
+        <li>@Html.ActionLink("All orders", "Index", "OrdersGrid", new { area = "" }, null)</li>
     </ul>
 }

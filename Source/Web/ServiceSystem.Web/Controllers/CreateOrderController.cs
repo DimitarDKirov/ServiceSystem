@@ -70,7 +70,7 @@
                 this.orderService.AddPublicId(order.Id, publicCode);
                 orderCreated = order;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 this.TempData["Error"] = "Order can not be created";
                 this.Response.StatusCode = 400;

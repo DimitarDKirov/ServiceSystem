@@ -1,14 +1,23 @@
-﻿using ServiceSystem.Web.Areas.Public.Models.OrderStatus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace ServiceSystem.Web.Areas.Public.Controllers
+﻿namespace ServiceSystem.Web.Areas.Public.Controllers
 {
-    public class OrderStatusController : Controller
+    using System;
+    using System.Web.Mvc;
+    using Models.OrderStatus;
+    using Services.Data;
+    using Services.Web;
+    using Web.Controllers;
+
+    public class OrderStatusController : BaseController
     {
+        private IPublicCodeProvider coder;
+        private IOrderService orderService;
+
+        public OrderStatusController(IPublicCodeProvider coder, IOrderService orderService)
+        {
+            this.coder = coder;
+            this.orderService = orderService;
+        }
+
         // GET: Public/OrderStatus
         public ActionResult Index()
         {
@@ -19,8 +28,39 @@ namespace ServiceSystem.Web.Areas.Public.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(OrderSearchViewModel input)
         {
+            int orderId;
+            try
+            {
+                orderId = this.coder.Decode(input.UserInput);
+            }
+            catch (Exception e)
+            {
+                input.Result = "Incorrect code";
+                return this.View(input);
+            }
 
-            return null;
+            var order = this.orderService.GetById(orderId);
+            if (order == null)
+            {
+                this.ModelState.AddModelError("UserInput", "Such order can not be found");
+                input.Result = "Such order can not be found";
+                return this.View(input);
+            }
+
+            if (order.OrderPublicId != input.UserInput)
+            {
+                input.Result = "Incorrect code";
+                this.ModelState.AddModelError("UserInput", "Code is not correct");
+                return this.View(input);
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            var model = this.Mapper.Map<OrderStatusViewModel>(order);
+            return this.View("OrderStatus", model);
         }
     }
 }

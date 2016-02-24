@@ -211,7 +211,12 @@
     <Compile Include="Areas\Administration\Models\Orders\OrdersModel.cs" />
     <Compile Include="Areas\Administration\Models\Users\UserInRoleViewModel.cs" />
     <Compile Include="Areas\Public\Controllers\OrderStatusController.cs" />
+    <Compile Include="Areas\Public\Controllers\PricesController.cs" />
+    <Compile Include="Areas\Public\Models\OrderStatus\CustomerViewModel.cs" />
     <Compile Include="Areas\Public\Models\OrderStatus\OrderSearchViewModel.cs" />
+    <Compile Include="Areas\Public\Models\OrderStatus\OrderStatusViewModel.cs" />
+    <Compile Include="Areas\Public\Models\OrderStatus\UnitViewModel.cs" />
+    <Compile Include="Areas\Public\Models\Prices\PricesViewModel.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -227,6 +232,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\OrdersGridController.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
@@ -266,6 +272,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\imgs\repair.png" />
     <Content Include="Content\Kendo\kendo.black.min.css" />
     <Content Include="Content\Kendo\kendo.black.mobile.min.css" />
     <Content Include="Content\Kendo\kendo.blueopal.min.css" />
@@ -449,6 +456,8 @@
     <Content Include="Areas\Public\Views\web.config" />
     <Content Include="Areas\Public\Views\OrderStatus\Index.cshtml" />
     <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Public\Views\OrderStatus\OrderStatus.cshtml" />
+    <Content Include="Areas\Public\Views\Prices\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -518,6 +527,8 @@
     <Content Include="Views\OrdersGrid\Index.cshtml" />
     <Content Include="Views\Shared\_AdminPartial.cshtml" />
     <Content Include="Views\Shared\_EngineersPartial.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\_PublicPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

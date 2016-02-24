@@ -1,7 +1,10 @@
 ﻿@model ServiceSystem.Web.Areas.Administration.Models.Categories.CategoryEditModel
 
-<h3>Create category</h3>
+@{
+    ViewBag.Title = "Create Category";
+}
 
+<h3>Create category</h3>
 
 @using(Html.BeginForm("Create", "Categories"))
 {

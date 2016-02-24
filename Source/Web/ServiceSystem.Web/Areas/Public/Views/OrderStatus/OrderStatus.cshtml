@@ -1,0 +1,65 @@
+﻿@model ServiceSystem.Web.Areas.Public.Models.OrderStatus.OrderStatusViewModel
+<h3>Your order</h3>
+@if (Model.Status == ServiceSystem.Data.Models.Status.Ready)
+{
+    <p class="bg-warning">Your device is ready. Please come to take it</p>
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">Order details</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Id): @Html.DisplayFor(m => m.Id) / @Model.CreatedOn.ToShortDateString()
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.WarrantyStatus): @Html.DisplayFor(m => m.WarrantyStatus)
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Status): @Html.DisplayFor(m => m.Status)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.Customer.Name): @Html.DisplayFor(m => m.Customer.Name)
+            </div>
+            @if (Model.RepairEndDate != null)
+            {
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.RepairEndDate): @Html.DisplayFor(m => m.RepairEndDate)
+                </div>
+            }
+            @if (Model.DeliverDate != null)
+            {
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.DeliverDate): @Html.DisplayFor(m => m.DeliverDate)
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">Device details</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">@Html.DisplayFor(m => m.Unit.Brand) @Html.LabelFor(m => m.Unit.Model): @Html.DisplayFor(m => m.Unit.Model)</div>
+            <div class="col-md-4">@Html.LabelFor(m => m.Unit.Category): @Html.DisplayFor(m => m.Unit.Category)</div>
+            <div class="col-md-4">@Html.LabelFor(m => m.Unit.SerialNumber): @Html.DisplayFor(m => m.Unit.SerialNumber)</div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">Problem</div>
+    <div class="panel-body">@Model.ProblemDescription</div>
+</div>
+
+@if (Model.Solution != null)
+{
+    <div class="panel panel-info">
+        <div class="panel-heading">Solution</div>
+        <div class="panel-body">@Model.Solution</div>
+    </div>
+}
+@if (Model.Status == ServiceSystem.Data.Models.Status.Ready || Model.Status == ServiceSystem.Data.Models.Status.Delivered)
+{
+    <p>@Html.LabelFor(m => m.LabourPrice): @Html.DisplayFor(m => m.LabourPrice) BGN</p>
+}

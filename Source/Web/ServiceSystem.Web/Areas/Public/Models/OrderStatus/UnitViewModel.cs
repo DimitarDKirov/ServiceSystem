@@ -1,4 +1,4 @@
-﻿namespace ServiceSystem.Web.ViewModels
+﻿namespace ServiceSystem.Web.Areas.Public.Models.OrderStatus
 {
     using System.ComponentModel.DataAnnotations;
     using AutoMapper;
