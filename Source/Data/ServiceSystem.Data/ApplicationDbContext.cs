@@ -33,7 +33,6 @@
 
         public virtual IDbSet<Unit> Units { get; set; }
 
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

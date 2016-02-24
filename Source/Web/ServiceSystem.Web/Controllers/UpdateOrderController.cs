@@ -33,7 +33,7 @@
             {
                 this.TempData["Error"] = "You are not allowed to edit this order";
                 this.Response.StatusCode = (int)HttpStatusCode.Forbidden;
-                // return this.RedirectToAction("Details", "ViewOrder", new { id = id });
+                return this.RedirectToAction("Details", "ViewOrder", new { id = id });
             }
 
             var orderViewModel = this.Mapper.Map<UpdateOrderModel>(order);
@@ -52,7 +52,7 @@
                 return this.View("Error");
             }
 
-            if (order.UserId != User.Identity.GetUserId())
+            if (order.UserId != this.User.Identity.GetUserId())
             {
                 this.TempData["Error"] = "Order is not assigned to you";
                 this.Response.StatusCode = (int)HttpStatusCode.Unauthorized;

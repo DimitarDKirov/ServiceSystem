@@ -1,7 +1,7 @@
 ﻿namespace ServiceSystem.Services.Data
 {
-    using ServiceSystem.Data.Models;
     using System.Linq;
+    using ServiceSystem.Data.Models;
 
     public interface IBrandsService
     {

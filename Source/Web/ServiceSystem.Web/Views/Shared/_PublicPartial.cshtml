@@ -1,0 +1,8 @@
+﻿@if (!User.Identity.IsAuthenticated)
+{
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
+        <li>@Html.ActionLink("Prices", "Index", "Prices", new { area = "Public" }, null)</li>
+        <li>@Html.ActionLink("Check order", "Index", "OrderStatus", new { area = "Public" }, null)</li>
+    </ul>
+}

@@ -33,6 +33,11 @@
             string role = GlobalConstants.EngineerRoleName;
             foreach (User user in users)
             {
+                if (user.Id == this.User.Identity.GetUserId())
+                {
+                    continue;
+                }
+
                 var userModel = new UserInRoleViewModel
                 {
                     UserId = user.Id,

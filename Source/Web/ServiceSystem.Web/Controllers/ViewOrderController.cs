@@ -50,6 +50,11 @@
                 orderViewModel.IsAssignable = true;
                 orderViewModel.IsEditable = false;
             }
+            else if (order.Status == Status.Delivered)
+            {
+                orderViewModel.IsAssignable = false;
+                orderViewModel.IsEditable = false;
+            }
             else if (order.UserId == this.User.Identity.GetUserId())
             {
                 orderViewModel.IsAssignable = false;

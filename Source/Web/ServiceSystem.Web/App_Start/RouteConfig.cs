@@ -10,13 +10,21 @@
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "OrderGrid",
+                url: "Order/Grid/{action}",
+                defaults: new { controller = "OrdersGrid", action = "Index" });
+            routes.MapRoute(
+                name: "OrderCreate",
+                url: "Order/Create/{action}",
+                defaults: new { controller = "CreateOrder", action = "Index" });
+            routes.MapRoute(
                 name: "OrderList",
                 url: "Order/List/{action}",
                 defaults: new { controller = "ListOrders", action = "Pending" });
             routes.MapRoute(
                name: "OrderUpdate",
                url: "Order/Update/{action}/{id}",
-               defaults: new { controller = "UpdateOrder", action = "Pending" });
+               defaults: new { controller = "UpdateOrder", action = "Edit" });
             routes.MapRoute(
                name: "OrderView",
                url: "Order/View/{action}/{id}",

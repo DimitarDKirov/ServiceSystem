@@ -1,12 +1,8 @@
 ﻿namespace ServiceSystem.Services.Data
 {
+    using System.Linq;
     using ServiceSystem.Data.Common;
     using ServiceSystem.Data.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class BrandsService : IBrandsService
     {
