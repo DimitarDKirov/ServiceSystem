@@ -1,13 +1,11 @@
 ﻿namespace ServiceSystem.Services.Data
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using ServiceSystem.Data.Models;
-    using ServiceSystem.Data.Common;
     using Common;
+    using ServiceSystem.Data.Common;
+    using ServiceSystem.Data.Models;
+
     public class OrderService : IOrderService
     {
         private IDbRepository<Order> ordersRepository;
@@ -43,6 +41,18 @@
             this.ordersRepository.Add(order);
             this.ordersRepository.Save();
             return order;
+        }
+
+        public void Delete(int id)
+        {
+            var order = this.ordersRepository.GetById(id);
+            this.ordersRepository.Delete(order);
+            this.ordersRepository.Save();
+        }
+
+        public IQueryable<Order> GetAll()
+        {
+            return this.ordersRepository.All();
         }
 
         public Order GetById(int id)

@@ -1,13 +1,9 @@
-﻿using ServiceSystem.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ServiceSystem.Services.Data
+﻿namespace ServiceSystem.Services.Data
 {
-   public interface IOrderService
+    using System.Linq;
+    using ServiceSystem.Data.Models;
+
+    public interface IOrderService
     {
         Order Create(Order order);
 
@@ -20,5 +16,9 @@ namespace ServiceSystem.Services.Data
         int CountPending();
 
         Order Update(Order order);
+
+        IQueryable<Order> GetAll();
+
+        void Delete(int id);
     }
 }

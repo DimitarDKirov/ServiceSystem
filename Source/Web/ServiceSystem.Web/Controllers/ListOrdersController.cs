@@ -1,15 +1,14 @@
-﻿using ServiceSystem.Common;
-using ServiceSystem.Services.Data;
-using ServiceSystem.Web.Infrastructure.Mapping;
-using ServiceSystem.Web.ViewModels.ListOrders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace ServiceSystem.Web.Controllers
+﻿namespace ServiceSystem.Web.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+    using Common;
+    using Infrastructure.Mapping;
+    using Services.Data;
+    using ViewModels.ListOrders;
+
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class ListOrdersController : BaseController
     {
         private IOrderService orderService;

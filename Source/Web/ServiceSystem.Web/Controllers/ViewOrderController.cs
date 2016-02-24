@@ -1,18 +1,15 @@
 ﻿namespace ServiceSystem.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using ServiceSystem.Services.Data;
-    using ServiceSystem.Web.ViewModels.CreateOrder;
-    using ViewModels.ViewOrder;
     using System.Net;
-    using ViewModels;
+    using System.Web.Mvc;
+    using Common;
     using Data.Models;
     using Microsoft.AspNet.Identity;
+    using Services.Data;
+    using ViewModels;
+    using ViewModels.ViewOrder;
 
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class ViewOrderController : BaseController
     {
         private IOrderService orderService;

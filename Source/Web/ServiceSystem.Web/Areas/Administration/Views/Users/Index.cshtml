@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ServiceSystem.Web.Areas.Administration.Models.Users.UserInRoleViewModel>
+
+<h2>Users vs role @ViewBag.RoleName</h2>
+
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Member of @ViewBag.RoleName</th>
+        <th></th>
+    </tr>
+    @foreach (var userModel in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => userModel.Username)</td>
+
+            @if (userModel.IsInRole)
+            {
+                <td>
+                    Yes
+                </td>
+                <td>
+                    @Html.ActionLink("Exclude", "ExcludeUser", new { id = userModel.UserId }, new { @class = "btn btn-warning" })
+                </td>
+            }
+            else
+            {
+                <td>
+                    No
+                </td>
+                <td>
+                    @Html.ActionLink("Include", "IncludeUser", new { id = userModel.UserId }, new { @class = "btn btn-info" })
+                </td>
+            }
+        </tr>
+    }
+</table>

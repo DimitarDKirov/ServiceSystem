@@ -204,8 +204,15 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Models\Categories\CategoriesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Categories\CategoryEditModel.cs" />
+    <Compile Include="Areas\Administration\Models\Orders\OrdersModel.cs" />
+    <Compile Include="Areas\Administration\Models\Users\UserInRoleViewModel.cs" />
+    <Compile Include="Areas\Public\Controllers\OrderStatusController.cs" />
+    <Compile Include="Areas\Public\Models\OrderStatus\OrderSearchViewModel.cs" />
+    <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BrandsController.cs" />
@@ -219,6 +226,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\OrdersGridController.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
@@ -236,6 +244,7 @@
     <Compile Include="ViewModels\ListOrders\ListOrdersViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\CreateOrder\OrderCreateModel.cs" />
+    <Compile Include="ViewModels\OrdersGrid\OrdersGridViewModel.cs" />
     <Compile Include="ViewModels\ViewOrder\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\UpdateOrder\UpdateOrderModel.cs" />
     <Compile Include="ViewModels\ViewOrder\OrderViewModel.cs" />
@@ -431,6 +440,15 @@
     <Content Include="Areas\Administration\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CategoryEditModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\OrdersModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Administration\Index.cshtml" />
+    <Content Include="Areas\Public\Views\web.config" />
+    <Content Include="Areas\Public\Views\OrderStatus\Index.cshtml" />
+    <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -497,9 +515,13 @@
     <Content Include="Views\UpdateOrder\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\OrdersGrid\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminPartial.cshtml" />
+    <Content Include="Views\Shared\_EngineersPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Public\Views\Shared\" />
     <Folder Include="Content\Kendo\Black\" />
     <Folder Include="Content\Kendo\BlueOpal\" />
     <Folder Include="Content\Kendo\Bootstrap\" />
@@ -521,6 +543,8 @@
     <Folder Include="Content\Kendo\Uniform\" />
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\OrdersAdmin\" />
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
