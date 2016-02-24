@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Common;
     using Data.Models;
     using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
@@ -10,6 +11,7 @@
     using Services.Data;
     using Web.Controllers;
 
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class OrdersController : BaseController
     {
         private IOrderService orderService;

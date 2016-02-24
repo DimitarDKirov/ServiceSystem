@@ -24,6 +24,8 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                 </ul>
+                @Html.Partial("_EngineersPartial")
+                @Html.Partial("_AdminPartial")
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

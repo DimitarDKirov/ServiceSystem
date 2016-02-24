@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Common;
     using Data.Models;
     using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
@@ -9,6 +10,7 @@
     using Services.Data;
     using ViewModels.OrdersGrid;
 
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class OrdersGridController : BaseController
     {
         private IOrderService orderService;

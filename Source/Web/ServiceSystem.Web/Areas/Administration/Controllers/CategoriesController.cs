@@ -1,17 +1,17 @@
 ﻿namespace ServiceSystem.Web.Areas.Administration.Controllers
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using ServiceSystem.Services.Data;
-    using ServiceSystem.Web.Areas.Administration.Models.Categories;
-    using ServiceSystem.Web.Controllers;
-    using ServiceSystem.Web.Infrastructure.Mapping;
     using System.Net;
+    using System.Web.Mvc;
+    using Common;
     using Data.Models;
+    using Infrastructure.Mapping;
+    using Models.Categories;
+    using Services.Data;
+    using Web.Controllers;
 
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class CategoriesController : BaseController
     {
         private ICategoriesService categoriesService;

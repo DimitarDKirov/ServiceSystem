@@ -20,7 +20,7 @@
         protected override void Seed(ApplicationDbContext context)
         {
             const string AdministratorUserName = "admin@service.com";
-            const string AdministratorPassword = AdministratorUserName;
+            const string AdministratorPassword = "admin";
 
             if (!context.Roles.Any())
             {
@@ -28,6 +28,10 @@
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
                 var role = new IdentityRole { Name = GlobalConstants.AdministratorRoleName };
+                roleManager.Create(role);
+
+                // Create Engineers role
+                role = new IdentityRole { Name = GlobalConstants.EngineerRoleName };
                 roleManager.Create(role);
 
                 // Create admin user

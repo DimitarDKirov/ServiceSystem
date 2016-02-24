@@ -4,11 +4,13 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using Common;
     using Data.Models;
     using Services.Data;
     using Services.Web;
     using ViewModels.CreateOrder;
 
+    [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class CreateOrderController : BaseController
     {
         private ICategoriesService categoriesService;
@@ -26,14 +28,14 @@
             this.coder = coder;
         }
 
-        public ActionResult Add()
+        public ActionResult Index()
         {
             var model = new OrderCreateModel
             {
                 Categories = this.GetCategories()
             };
 
-            return this.View(model);
+            return this.View("Add", model);
         }
 
         [HttpPost]

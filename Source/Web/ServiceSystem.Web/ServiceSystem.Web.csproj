@@ -205,9 +205,14 @@
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Models\Categories\CategoriesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\Categories\CategoryEditModel.cs" />
     <Compile Include="Areas\Administration\Models\Orders\OrdersModel.cs" />
+    <Compile Include="Areas\Administration\Models\Users\UserInRoleViewModel.cs" />
+    <Compile Include="Areas\Public\Controllers\OrderStatusController.cs" />
+    <Compile Include="Areas\Public\Models\OrderStatus\OrderSearchViewModel.cs" />
+    <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BrandsController.cs" />
@@ -439,6 +444,11 @@
     <Content Include="Areas\Administration\Views\Orders\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Administration\Index.cshtml" />
+    <Content Include="Areas\Public\Views\web.config" />
+    <Content Include="Areas\Public\Views\OrderStatus\Index.cshtml" />
+    <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -506,9 +516,12 @@
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\OrdersGrid\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminPartial.cshtml" />
+    <Content Include="Views\Shared\_EngineersPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Public\Views\Shared\" />
     <Folder Include="Content\Kendo\Black\" />
     <Folder Include="Content\Kendo\BlueOpal\" />
     <Folder Include="Content\Kendo\Bootstrap\" />
