@@ -38,7 +38,6 @@
             };
 
             return this.View(model);
-
         }
     }
 }

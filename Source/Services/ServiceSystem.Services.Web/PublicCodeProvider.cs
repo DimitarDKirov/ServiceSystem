@@ -14,12 +14,11 @@
         public string Encode(int id, string name)
         {
             var nameTrimmed = name.Trim();
-            string idString = id.ToString();
             string nameToCode;
             if (nameTrimmed.Length < 3)
             {
                 var rand = new Random();
-                nameToCode = nameTrimmed.PadRight(idString.Length + 3, (char)('a' + rand.Next(0, 26)));
+                nameToCode = nameTrimmed.PadRight(3, (char)('a' + rand.Next(0, 26)));
             }
             else
             {

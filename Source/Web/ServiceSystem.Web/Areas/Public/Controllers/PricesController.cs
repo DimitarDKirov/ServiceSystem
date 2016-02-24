@@ -18,10 +18,13 @@
 
         public ActionResult Index()
         {
-            var prices = this.categoriesService
+            var prices = this.Cache.Get(
+                "PricesPublic",
+                () => this.categoriesService
                 .GetAll()
                 .To<PricesViewModel>()
-                .ToList();
+                .ToList(),
+                24 * 60 * 60);
 
             return this.View(prices);
         }

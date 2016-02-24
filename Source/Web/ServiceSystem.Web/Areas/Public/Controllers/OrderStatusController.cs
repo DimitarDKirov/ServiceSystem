@@ -33,7 +33,7 @@
             {
                 orderId = this.coder.Decode(input.UserInput);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 input.Result = "Incorrect code";
                 return this.View(input);
