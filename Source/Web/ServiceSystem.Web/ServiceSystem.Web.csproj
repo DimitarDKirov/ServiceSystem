@@ -457,6 +457,7 @@
     <Content Include="Areas\Public\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Public\Views\OrderStatus\OrderStatus.cshtml" />
     <Content Include="Areas\Public\Views\Prices\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\localIIS.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -598,6 +599,9 @@
       <Project>{6813dc53-5eee-4507-8604-5301ee51a0d3}</Project>
       <Name>MvcTemplate.Web.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

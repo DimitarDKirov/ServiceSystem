@@ -37,8 +37,9 @@
                 // Create admin user
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
+                userManager.PasswordValidator = new PasswordValidator() { RequiredLength = 5 };
                 var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName };
-                userManager.Create(user, AdministratorPassword);
+                var result = userManager.Create(user, AdministratorPassword);
 
                 // Assign user to admin role
                 userManager.AddToRole(user.Id, GlobalConstants.AdministratorRoleName);
