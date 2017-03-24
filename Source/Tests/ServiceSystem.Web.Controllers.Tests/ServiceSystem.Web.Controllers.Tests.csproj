@@ -94,27 +94,27 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\ServiceSystem.Data.Common\ServiceSystem.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
-      <Name>MvcTemplate.Data.Common</Name>
+      <Name>ServiceSystem.Data.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\ServiceSystem.Data.Models\ServiceSystem.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>ServiceSystem.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\ServiceSystem.Services.Data\ServiceSystem.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>
-      <Name>MvcTemplate.Services.Data</Name>
+      <Name>ServiceSystem.Services.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\ServiceSystem.Services.Web\ServiceSystem.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
-      <Name>MvcTemplate.Services.Web</Name>
+      <Name>ServiceSystem.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\ServiceSystem.Web.Infrastructure\ServiceSystem.Web.Infrastructure.csproj">
       <Project>{6813dc53-5eee-4507-8604-5301ee51a0d3}</Project>
-      <Name>MvcTemplate.Web.Infrastructure</Name>
+      <Name>ServiceSystem.Web.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\ServiceSystem.Web\ServiceSystem.Web.csproj">
       <Project>{67cc40ff-4933-4f83-810e-357e6bc8b973}</Project>
-      <Name>MvcTemplate.Web</Name>
+      <Name>ServiceSystem.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

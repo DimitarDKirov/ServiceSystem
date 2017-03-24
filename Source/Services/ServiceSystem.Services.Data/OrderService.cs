@@ -1,16 +1,15 @@
-﻿namespace ServiceSystem.Services.Data
-{
-    using System;
-    using System.Linq;
-    using Common;
-    using ServiceSystem.Data.Common;
-    using ServiceSystem.Data.Models;
+﻿using System.Linq;
+using ServiceSystem.Common;
+using ServiceSystem.Data.Common.Contracts;
+using ServiceSystem.Data.Models;
 
+namespace ServiceSystem.Services.Data
+{
     public class OrderService : IOrderService
     {
-        private IDbRepository<Order> ordersRepository;
+        private IEfDbRepository<Order> ordersRepository;
 
-        public OrderService(IDbRepository<Order> ordersRepo)
+        public OrderService(IEfDbRepository<Order> ordersRepo)
         {
             this.ordersRepository = ordersRepo;
         }

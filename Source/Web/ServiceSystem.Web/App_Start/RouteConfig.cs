@@ -9,6 +9,8 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.LowercaseUrls = true;
+
             routes.MapRoute(
                 name: "OrderGrid",
                 url: "Order/Grid/{action}",

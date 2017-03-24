@@ -57,11 +57,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\ServiceSystem.Data.Common\ServiceSystem.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
-      <Name>MvcTemplate.Data.Common</Name>
+      <Name>ServiceSystem.Data.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\ServiceSystem.Data.Models\ServiceSystem.Data.Models.csproj">
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
-      <Name>MvcTemplate.Data.Models</Name>
+      <Name>ServiceSystem.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ServiceSystem.Common\ServiceSystem.Common.csproj">
       <Project>{701f322f-aa01-4ddc-90b6-6935981c1e73}</Project>
@@ -69,7 +69,7 @@
     </ProjectReference>
     <ProjectReference Include="..\ServiceSystem.Services.Web\ServiceSystem.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
-      <Name>MvcTemplate.Services.Web</Name>
+      <Name>ServiceSystem.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

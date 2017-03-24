@@ -1,10 +1,10 @@
-﻿namespace ServiceSystem.Data.Models
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using Common.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Data.Common.Models;
 
+namespace ServiceSystem.Data.Models
+{
     public class Order : BaseModel<int>
     {
         private ICollection<PartsInOrder> partsUsed;

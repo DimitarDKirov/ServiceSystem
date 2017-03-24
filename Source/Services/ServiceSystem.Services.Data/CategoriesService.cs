@@ -1,18 +1,15 @@
-﻿namespace ServiceSystem.Services.Data
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using ServiceSystem.Data.Common;
-    using ServiceSystem.Data.Models;
+﻿using System;
+using System.Linq;
+using ServiceSystem.Data.Common.Contracts;
+using ServiceSystem.Data.Models;
 
+namespace ServiceSystem.Services.Data
+{
     public class CategoriesService : ICategoriesService
     {
-        private IDbRepository<Category> categoriesRepo;
+        private IEfDbRepository<Category> categoriesRepo;
 
-        public CategoriesService(IDbRepository<Category> categories)
+        public CategoriesService(IEfDbRepository<Category> categories)
         {
             this.categoriesRepo = categories;
         }

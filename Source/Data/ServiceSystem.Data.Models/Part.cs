@@ -1,9 +1,9 @@
-﻿namespace ServiceSystem.Data.Models
-{
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using ServiceSystem.Data.Common.Models;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Data.Common.Models;
 
+namespace ServiceSystem.Data.Models
+{
     public class Part : BaseModel<int>
     {
         private ICollection<PartsInOrder> orderParts;

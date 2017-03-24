@@ -73,7 +73,7 @@
 
             if (model.Status == Status.Ready && string.IsNullOrEmpty(model.Solution))
             {
-                this.ModelState.AddModelError("Soution", "Solution is required for orders with status Ready");
+                this.ModelState.AddModelError("Solution", "Solution is required for orders with status Ready");
             }
 
             if (!this.ModelState.IsValid)

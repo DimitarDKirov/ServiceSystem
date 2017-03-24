@@ -1,5 +1,6 @@
 ﻿namespace ServiceSystem.Services.Web
 {
+    using MvcTemplate.Common;
     using System;
     using System.Web;
     using System.Web.Caching;
@@ -21,7 +22,7 @@
                             itemName,
                             data,
                             null,
-                            DateTime.Now.AddSeconds(durationInSeconds),
+                            DateTimeProvider.Current.UtcNow.AddSeconds(durationInSeconds),
                             Cache.NoSlidingExpiration);
                     }
                 }

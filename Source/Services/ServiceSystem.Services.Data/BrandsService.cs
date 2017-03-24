@@ -1,14 +1,15 @@
-﻿namespace ServiceSystem.Services.Data
-{
-    using System.Linq;
-    using ServiceSystem.Data.Common;
-    using ServiceSystem.Data.Models;
+﻿using System.Linq;
+using ServiceSystem.Data.Common;
+using ServiceSystem.Data.Common.Contracts;
+using ServiceSystem.Data.Models;
 
+namespace ServiceSystem.Services.Data
+{
     public class BrandsService : IBrandsService
     {
-        private IDbRepository<Brand> brandsRepo;
+        private IEfDbRepository<Brand> brandsRepo;
 
-        public BrandsService(IDbRepository<Brand> brands)
+        public BrandsService(IEfDbRepository<Brand> brands)
         {
             this.brandsRepo = brands;
         }

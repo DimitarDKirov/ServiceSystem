@@ -79,7 +79,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ServiceSystem.Data.Common\ServiceSystem.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>
-      <Name>MvcTemplate.Data.Common</Name>
+      <Name>ServiceSystem.Data.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

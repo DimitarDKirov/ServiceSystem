@@ -1,18 +1,13 @@
-﻿namespace ServiceSystem.Services.Data
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using ServiceSystem.Data.Common;
-    using ServiceSystem.Data.Models;
+﻿using ServiceSystem.Data.Common.Contracts;
+using ServiceSystem.Data.Models;
 
+namespace ServiceSystem.Services.Data
+{
     public class CustomerService : ICustomerService
     {
-        private IDbRepository<Customer> customerService;
+        private IEfDbRepository<Customer> customerService;
 
-        public CustomerService(IDbRepository<Customer> customers)
+        public CustomerService(IEfDbRepository<Customer> customers)
         {
             this.customerService = customers;
         }

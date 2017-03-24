@@ -1,15 +1,14 @@
-﻿namespace ServiceSystem.Data.Common
+﻿using System.Linq;
+using ServiceSystem.Data.Common.Models;
+
+namespace ServiceSystem.Data.Common.Contracts
 {
-    using System.Linq;
-
-    using ServiceSystem.Data.Common.Models;
-
-    public interface IDbRepository<T> : IDbRepository<T, int>
+    public interface IEfDbRepository<T> : IEfDbRepository<T, int>
         where T : BaseModel<int>
     {
     }
 
-    public interface IDbRepository<T, in TKey>
+    public interface IEfDbRepository<T, in TKey>
         where T : BaseModel<TKey>
     {
         IQueryable<T> All();
@@ -23,6 +22,8 @@
         void Delete(T entity);
 
         void HardDelete(T entity);
+
+        void Update(T entity);
 
         void Save();
     }

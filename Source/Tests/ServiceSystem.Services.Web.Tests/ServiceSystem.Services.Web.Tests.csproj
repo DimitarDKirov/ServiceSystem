@@ -53,7 +53,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Services\ServiceSystem.Services.Web\ServiceSystem.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
-      <Name>MvcTemplate.Services.Web</Name>
+      <Name>ServiceSystem.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

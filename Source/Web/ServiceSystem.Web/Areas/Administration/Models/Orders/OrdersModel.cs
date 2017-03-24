@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using Data.Models;
     using Infrastructure.Mapping;
+    using MvcTemplate.Common;
 
     public class OrdersModel : IMapFrom<Order>
     {
@@ -63,7 +64,7 @@
                 return ValidationResult.Success;
             }
 
-            if (warrantyDate > DateTime.Now)
+            if (warrantyDate > DateTimeProvider.Current.UtcNow)
             {
                 return new ValidationResult("Warranty date must be earlier than today");
             }

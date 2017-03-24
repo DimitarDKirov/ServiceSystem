@@ -51,9 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbRepository{T}.cs" />
-    <Compile Include="IDbRepository{T}.cs" />
-    <Compile Include="Models\BaseModel{TKey}.cs" />
+    <Compile Include="Contracts\IEfDbRepositorySaveChanges.cs" />
+    <Compile Include="EfDbRepository.cs" />
+    <Compile Include="Contracts\IEfDbRepository.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\IAuditInfo.cs" />
     <Compile Include="Models\IDeletableEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,12 @@
     <AdditionalFiles Include="..\..\stylecop.json">
       <Link>stylecop.json</Link>
     </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ServiceSystem.Common\ServiceSystem.Common.csproj">
+      <Project>{701F322F-AA01-4DDC-90B6-6935981C1E73}</Project>
+      <Name>ServiceSystem.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

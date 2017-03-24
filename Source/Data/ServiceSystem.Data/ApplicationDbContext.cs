@@ -1,16 +1,15 @@
-﻿namespace ServiceSystem.Data
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MvcTemplate.Common;
+using MvcTemplate.Data.Common.Contracts;
+using ServiceSystem.Data.Common.Models;
+using ServiceSystem.Data.Models;
+
+namespace ServiceSystem.Data
 {
-    using System;
-    using System.Data.Entity;
-    using System.Linq;
-
-    using Common.Models;
-
-    using Microsoft.AspNet.Identity.EntityFramework;
-
-    using ServiceSystem.Data.Models;
-
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<User>, IEfDbRepositorySaveChanges
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -33,6 +32,7 @@
 
         public virtual IDbSet<Unit> Units { get; set; }
 
+        // idendtiity usage
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -56,11 +56,11 @@
                 var entity = (IAuditInfo)entry.Entity;
                 if (entry.State == EntityState.Added && entity.CreatedOn == default(DateTime))
                 {
-                    entity.CreatedOn = DateTime.Now;
+                    entity.CreatedOn = DateTimeProvider.Current.UtcNow;
                 }
                 else
                 {
-                    entity.ModifiedOn = DateTime.Now;
+                    entity.ModifiedOn = DateTimeProvider.Current.UtcNow;
                 }
             }
         }

@@ -4,6 +4,9 @@
     "layoutRules": {
       "newlineAtEndOfFile": "require"
     },
+    "orderingRules": {
+      "usingDirectivesPlacement":"outsideNamespace"
+    },
     "namingRules": {
       "allowCommonHungarianPrefixes": true
     }

@@ -16,6 +16,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">Solution</div>
             <div class="panel-body">@Html.EditorFor(m => m.Solution, new { htmlAttributes = new { @class = "form-control" } })</div>
+            <div>@Html.ValidationMessageFor(m=>m.Solution)</div>
         </div>
 
         <div class="row">

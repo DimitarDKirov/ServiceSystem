@@ -1,9 +1,9 @@
-﻿namespace ServiceSystem.Data.Common.Models
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace ServiceSystem.Data.Common.Models
+{
     public abstract class BaseModel<TKey> : IAuditInfo, IDeletableEntity
     {
         [Key]

@@ -7,6 +7,7 @@
     using System.Web;
     using System.Web.Mvc;
     using ServiceSystem.Data.Models;
+    using MvcTemplate.Common;
 
     public class OrderCreateModel
     {
@@ -41,7 +42,7 @@
                 return ValidationResult.Success;
             }
 
-            if (warrantyDate > DateTime.Now)
+            if (warrantyDate > DateTimeProvider.Current.UtcNow)
             {
                 return new ValidationResult("Warranty date must be earlier than today");
             }
