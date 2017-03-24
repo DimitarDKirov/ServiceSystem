@@ -1,11 +1,11 @@
-﻿namespace ServiceSystem.Web.Areas.Administration.Models.Orders
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using Data.Models;
-    using Infrastructure.Mapping;
-    using MvcTemplate.Common;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.DateProvider;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.Areas.Administration.Models.Orders
+{
     public class OrdersModel : IMapFrom<Order>
     {
         [Display(Name = "Order number")]

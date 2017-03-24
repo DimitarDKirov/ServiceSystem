@@ -62,6 +62,10 @@
       <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
       <Private>True</Private>
@@ -583,10 +587,6 @@
       <Project>{7c950cdc-9587-4b65-a204-988efed17948}</Project>
       <Name>ServiceSystem.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ServiceSystem.Common\ServiceSystem.Common.csproj">
-      <Project>{701F322F-AA01-4DDC-90B6-6935981C1E73}</Project>
-      <Name>ServiceSystem.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\ServiceSystem.Services.Data\ServiceSystem.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>
       <Name>ServiceSystem.Services.Data</Name>
@@ -595,9 +595,9 @@
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
       <Name>ServiceSystem.Services.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ServiceSystem.Web.Infrastructure\ServiceSystem.Web.Infrastructure.csproj">
+    <ProjectReference Include="..\ServiceSystem.Web.Infrastructure\ServiceSystem.Infrastructure.csproj">
       <Project>{6813dc53-5eee-4507-8604-5301ee51a0d3}</Project>
-      <Name>ServiceSystem.Web.Infrastructure</Name>
+      <Name>ServiceSystem.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

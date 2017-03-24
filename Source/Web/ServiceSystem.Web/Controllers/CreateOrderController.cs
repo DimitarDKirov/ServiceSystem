@@ -1,15 +1,16 @@
-﻿namespace ServiceSystem.Web.Controllers
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
-    using Common;
-    using Data.Models;
-    using Services.Data;
-    using Services.Web;
-    using ViewModels.CreateOrder;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure;
+using ServiceSystem.Services.Data;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Web;
+using ServiceSystem.Web.ViewModels.CreateOrder;
 
+namespace ServiceSystem.Web.Controllers
+{
     [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class CreateOrderController : BaseController
     {

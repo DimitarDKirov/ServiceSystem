@@ -1,4 +1,4 @@
-﻿namespace ServiceSystem.Web.Infrastructure.Mapping
+﻿namespace ServiceSystem.Infrastructure.Mapping.Contracts
 {
     public interface IMapFrom<T>
         where T : class

@@ -1,11 +1,10 @@
-﻿namespace ServiceSystem.Web.ViewModels.ViewOrder
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using AutoMapper;
-    using Data.Models;
-    using Infrastructure.Mapping;
+﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.ViewModels.ViewOrder
+{
     public class OrderDetailsViewModel : IMapFrom<Order>, IHaveCustomMappings
     {
         [Display(Name = "Order number")]

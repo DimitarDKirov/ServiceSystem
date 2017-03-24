@@ -1,20 +1,32 @@
-﻿using System.Linq;
-using ServiceSystem.Data.Common;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Bytes2you.Validation;
 using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Services.Data
 {
     public class BrandsService : IBrandsService
     {
         private IEfDbRepository<Brand> brandsRepo;
+        private IEfDbRepositorySaveChanges efRepoSaveData;
+        private IMappingService mappringService;
 
-        public BrandsService(IEfDbRepository<Brand> brands)
+        public BrandsService(IEfDbRepository<Brand> brandsRepo, IEfDbRepositorySaveChanges efRepoSaveData, IMappingService mappringService)
         {
-            this.brandsRepo = brands;
+            Guard.WhenArgument(brandsRepo, "brandsRepo").IsNull().Throw();
+            Guard.WhenArgument(efRepoSaveData, "efRepoSaveData").IsNull().Throw();
+            Guard.WhenArgument(mappringService, "mappringService").IsNull().Throw();
+
+            this.brandsRepo = brandsRepo;
+            this.efRepoSaveData = efRepoSaveData;
+            this.mappringService = mappringService;
         }
 
-        public Brand Create(string name)
+        public BrandModel Create(string name)
         {
             var brand = this.brandsRepo
                 .All()
@@ -29,18 +41,19 @@ namespace ServiceSystem.Services.Data
                 };
 
                 this.brandsRepo.Add(brand);
-                this.brandsRepo.Save();
+                this.efRepoSaveData.SaveChanges();
             }
 
-            return brand;
+            return this.mappringService.Map<BrandModel>(brand);
         }
 
-        public IQueryable<string> FindByName(string brand)
+        public IEnumerable<string> FindByName(string brand)
         {
             return this.brandsRepo
                 .All()
                 .Where(b => b.Name.ToUpper().Contains(brand.ToUpper()))
-                .Select(b => b.Name);
+                .Select(b => b.Name)
+                .ToList();
         }
     }
 }

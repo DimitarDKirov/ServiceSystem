@@ -1,10 +1,9 @@
-﻿namespace ServiceSystem.Web.ViewModels.UpdateOrder
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using Data.Models;
-    using Infrastructure.Mapping;
+﻿using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.ViewModels.UpdateOrder
+{
     public class UpdateOrderModel : IMapFrom<Order>
     {
         [Display(Name = "Order number")]

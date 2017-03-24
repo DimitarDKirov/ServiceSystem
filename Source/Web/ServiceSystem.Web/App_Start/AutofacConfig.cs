@@ -15,6 +15,7 @@
     using Services.Data;
     using Services.Web;
     using Data.Common.Contracts;
+    using Services.Data.Contracts;
 
     public static class AutofacConfig
     {

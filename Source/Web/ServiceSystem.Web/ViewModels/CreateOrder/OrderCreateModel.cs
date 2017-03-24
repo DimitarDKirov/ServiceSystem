@@ -1,14 +1,12 @@
-﻿namespace ServiceSystem.Web.ViewModels.CreateOrder
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using ServiceSystem.Data.Models;
-    using MvcTemplate.Common;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.DateProvider;
 
+namespace ServiceSystem.Web.ViewModels.CreateOrder
+{
     public class OrderCreateModel
     {
         [Display(Name = "Warranty")]

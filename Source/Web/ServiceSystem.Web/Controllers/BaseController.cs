@@ -1,10 +1,10 @@
-﻿namespace ServiceSystem.Web.Controllers
-{
-    using System.Web.Mvc;
-    using AutoMapper;
-    using Infrastructure.Mapping;
-    using ServiceSystem.Services.Web;
+﻿using System.Web.Mvc;
+using AutoMapper;
+using ServiceSystem.Infrastructure.Mapping;
+using ServiceSystem.Services.Web;
 
+namespace ServiceSystem.Web.Controllers
+{
     public abstract class BaseController : Controller
     {
         public ICacheService Cache { get; set; }

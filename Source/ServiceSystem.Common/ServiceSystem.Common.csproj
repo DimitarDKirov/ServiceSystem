@@ -7,8 +7,8 @@
     <ProjectGuid>{701F322F-AA01-4DDC-90B6-6935981C1E73}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcTemplate.Common</RootNamespace>
-    <AssemblyName>MvcTemplate.Common</AssemblyName>
+    <RootNamespace>ServiceSystem.Common</RootNamespace>
+    <AssemblyName>ServiceSystem.Common</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,8 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateTimeProvider.cs" />
-    <Compile Include="DefaultDateTimeProvider.cs" />
     <Compile Include="GlobalConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,10 +1,10 @@
-﻿namespace ServiceSystem.Web.ViewModels.ListOrders
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using Data.Models;
-    using Infrastructure.Mapping;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.ViewModels.ListOrders
+{
     public class ListedOrderViewModel : IMapFrom<Order>
     {
         public ListedUnitViewModel Unit { get; set; }

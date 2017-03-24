@@ -1,10 +1,12 @@
 ﻿using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
 
-namespace ServiceSystem.Web.Areas.Public.Models.Prices
+namespace ServiceSystem.Services.Data.Models
 {
-    public class PricesViewModel : IMapFrom<Category>
+    public class CategoryModel : IMapFrom<Category>
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public decimal MinPrice { get; set; }

@@ -108,9 +108,9 @@
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>
       <Name>ServiceSystem.Services.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Web\ServiceSystem.Web.Infrastructure\ServiceSystem.Web.Infrastructure.csproj">
+    <ProjectReference Include="..\..\Web\ServiceSystem.Web.Infrastructure\ServiceSystem.Infrastructure.csproj">
       <Project>{6813dc53-5eee-4507-8604-5301ee51a0d3}</Project>
-      <Name>ServiceSystem.Web.Infrastructure</Name>
+      <Name>ServiceSystem.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\ServiceSystem.Web\ServiceSystem.Web.csproj">
       <Project>{67cc40ff-4933-4f83-810e-357e6bc8b973}</Project>

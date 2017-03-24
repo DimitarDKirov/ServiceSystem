@@ -1,16 +1,16 @@
-﻿namespace ServiceSystem.Web.Areas.Administration.Controllers
-{
-    using System.Linq;
-    using System.Web.Mvc;
-    using Common;
-    using Data.Models;
-    using Infrastructure.Mapping;
-    using Kendo.Mvc.Extensions;
-    using Kendo.Mvc.UI;
-    using Models.Orders;
-    using Services.Data;
-    using Web.Controllers;
+﻿using System.Linq;
+using System.Web.Mvc;
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure;
+using ServiceSystem.Services.Data;
+using ServiceSystem.Web.Areas.Administration.Models.Orders;
+using ServiceSystem.Web.Controllers;
+using ServiceSystem.Infrastructure.Mapping;
 
+namespace ServiceSystem.Web.Areas.Administration.Controllers
+{
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class OrdersController : BaseController
     {

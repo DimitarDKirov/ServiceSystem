@@ -1,10 +1,10 @@
-﻿namespace ServiceSystem.Services.Web
-{
-    using MvcTemplate.Common;
-    using System;
-    using System.Web;
-    using System.Web.Caching;
+﻿using ServiceSystem.Infrastructure.DateProvider;
+using System;
+using System.Web;
+using System.Web.Caching;
 
+namespace ServiceSystem.Services.Web
+{
     public class HttpCacheService : ICacheService
     {
         private static readonly object LockObject = new object();

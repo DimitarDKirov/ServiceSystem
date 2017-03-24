@@ -1,9 +1,9 @@
-﻿namespace ServiceSystem.Web.ViewModels.ListOrders
-{
-    using AutoMapper;
-    using ServiceSystem.Data.Models;
-    using ServiceSystem.Web.Infrastructure.Mapping;
+﻿using AutoMapper;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.ViewModels.ListOrders
+{
     public class ListedUnitViewModel : IMapFrom<Unit>, IHaveCustomMappings
     {
         public string Brand { get; set; }

@@ -1,14 +1,12 @@
-﻿namespace ServiceSystem.Data.Migrations
+﻿using System.Data.Entity.Migrations;
+using System.Linq;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure;
+
+namespace ServiceSystem.Data.Migrations
 {
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-
-    using ServiceSystem.Common;
-    using ServiceSystem.Data.Models;
-
     public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()

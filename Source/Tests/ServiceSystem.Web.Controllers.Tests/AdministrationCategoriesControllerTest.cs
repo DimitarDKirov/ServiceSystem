@@ -11,20 +11,23 @@
     using ServiceSystem.Web.Areas.Administration.Models.Categories;
     using ServiceSystem.Web.Infrastructure.Mapping;
     using TestStack.FluentMVCTesting;
+    using ServiceSystem.Services.Data.Contracts;
+    using ServiceSystem.Services.Data.Models;
+    using ServiceSystem.Infrastructure.Mapping;
 
     [TestFixture]
     public class AdministrationCategoriesControllerTest
     {
-        private IList<Category> categories = new List<Category>
+        private IList<CategoryModel> categories = new List<CategoryModel>
         {
-            new Category
+            new CategoryModel
             {
                 Id = 1,
                 Name = "name1",
                 MinPrice = 20,
                 MaxPrice = 30
             },
-            new Category
+            new CategoryModel
             {
                 Id = 2,
                 Name = "name2",
@@ -41,7 +44,7 @@
 
             var categoriesServiceMock = new Mock<ICategoriesService>();
             categoriesServiceMock.Setup(x => x.GetAll())
-                .Returns(this.categories.AsQueryable());
+                .Returns(this.categories);
             var controller = new CategoriesController(categoriesServiceMock.Object);
             controller.WithCallTo(x => x.Index())
                 .ShouldRenderView("Index")

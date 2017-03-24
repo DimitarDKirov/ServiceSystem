@@ -2,9 +2,9 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using MvcTemplate.Common;
 using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Common.Models;
+using ServiceSystem.Infrastructure.DateProvider;
 
 namespace ServiceSystem.Data.Common
 {
@@ -20,7 +20,7 @@ namespace ServiceSystem.Data.Common
         {
             if (context == null)
             {
-                throw new ArgumentException("An instance of DbContext is required to use this repository.", nameof(context));
+                throw new ArgumentNullException("An instance of DbContext is required to use this repository.", nameof(context));
             }
 
             this.context = context;

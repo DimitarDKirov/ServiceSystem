@@ -32,7 +32,12 @@
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,11 +50,16 @@
     <Compile Include="BrandsService.cs" />
     <Compile Include="CategoriesService.cs" />
     <Compile Include="CustomerService.cs" />
-    <Compile Include="IBrandsService.cs" />
-    <Compile Include="ICategoriesService.cs" />
-    <Compile Include="IOrderService.cs" />
-    <Compile Include="ICustomerService.cs" />
-    <Compile Include="IUnitService.cs" />
+    <Compile Include="Contracts\IBrandsService.cs" />
+    <Compile Include="Contracts\ICategoriesService.cs" />
+    <Compile Include="Contracts\IOrderService.cs" />
+    <Compile Include="Contracts\ICustomerService.cs" />
+    <Compile Include="Contracts\IUnitService.cs" />
+    <Compile Include="Models\BrandModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\UnitModel.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitService.cs" />
@@ -63,9 +73,9 @@
       <Project>{048df115-fad9-4bd4-9ba0-d99dfd32a2b2}</Project>
       <Name>ServiceSystem.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ServiceSystem.Common\ServiceSystem.Common.csproj">
-      <Project>{701f322f-aa01-4ddc-90b6-6935981c1e73}</Project>
-      <Name>ServiceSystem.Common</Name>
+    <ProjectReference Include="..\..\Web\ServiceSystem.Web.Infrastructure\ServiceSystem.Infrastructure.csproj">
+      <Project>{6813DC53-5EEE-4507-8604-5301EE51A0D3}</Project>
+      <Name>ServiceSystem.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceSystem.Services.Web\ServiceSystem.Services.Web.csproj">
       <Project>{deab17a2-58c1-448c-8a66-d49c3af7fc6c}</Project>

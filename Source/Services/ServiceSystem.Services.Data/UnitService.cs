@@ -1,5 +1,6 @@
 ﻿using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Models;
+using ServiceSystem.Services.Data.Contracts;
 
 namespace ServiceSystem.Services.Data
 {

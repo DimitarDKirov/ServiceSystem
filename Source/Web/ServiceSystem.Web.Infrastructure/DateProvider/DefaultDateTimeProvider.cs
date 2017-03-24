@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MvcTemplate.Common
+namespace ServiceSystem.Infrastructure.DateProvider
 {
     public class DefaultDateTimeProvider : DateTimeProvider
     {

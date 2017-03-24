@@ -1,9 +1,9 @@
 ﻿using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
 
-namespace ServiceSystem.Web.ViewModels.CreateOrder
+namespace ServiceSystem.Services.Data.Models
 {
-    public class CategoriesComboModel : IMapFrom<Category>
+    public class BrandModel : IMapFrom<Brand>
     {
         public int Id { get; set; }
 

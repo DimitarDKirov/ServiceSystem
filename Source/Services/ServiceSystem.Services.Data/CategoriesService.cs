@@ -1,20 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Bytes2you.Validation;
 using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Services.Data
 {
     public class CategoriesService : ICategoriesService
     {
         private IEfDbRepository<Category> categoriesRepo;
+        private IEfDbRepositorySaveChanges efRepoSaveChanges;
+        private IMappingService mappingService;
 
-        public CategoriesService(IEfDbRepository<Category> categories)
+        public CategoriesService(IEfDbRepository<Category> categoriesRepo, IEfDbRepositorySaveChanges efRepoSaveChanges, IMappingService mappingService)
         {
-            this.categoriesRepo = categories;
+            Guard.WhenArgument(categoriesRepo, "categoriesRepo").IsNull().Throw();
+            Guard.WhenArgument(efRepoSaveChanges, "efRepoSaveChanges").IsNull().Throw();
+            Guard.WhenArgument(mappingService, "mappingService").IsNull().Throw();
+
+            this.categoriesRepo = categoriesRepo;
+            this.efRepoSaveChanges = efRepoSaveChanges;
+            this.mappingService = mappingService;
         }
 
-        public Category Create(string name, decimal minPrice, decimal maxPrice)
+        public CategoryModel Create(string name, decimal minPrice, decimal maxPrice)
         {
             var category = new Category
             {
@@ -24,29 +38,25 @@ namespace ServiceSystem.Services.Data
             };
 
             this.categoriesRepo.Add(category);
-            this.categoriesRepo.Save();
-            return category;
+            this.efRepoSaveChanges.SaveChanges();
+            return this.mappingService.Map<CategoryModel>(category);
         }
 
-        public void Delete(Category category)
+        public CategoryModel Find(int id)
         {
-            this.categoriesRepo.Delete(category);
-            this.categoriesRepo.Save();
-            return;
+            var category = this.categoriesRepo.GetById(id);
+            return this.mappingService.Map<CategoryModel>(category);
         }
 
-        public Category Find(int id)
-        {
-            return this.categoriesRepo.GetById(id);
-        }
-
-        public IQueryable<Category> GetAll()
+        public IEnumerable<CategoryModel> GetAll()
         {
             return this.categoriesRepo
-                .All();
+                .All()
+                .To<CategoryModel>()
+                .ToList();
         }
 
-        public Category UpdateById(int id, string name, decimal minPrice, decimal maxPrice)
+        public CategoryModel UpdateById(int id, string name, decimal minPrice, decimal maxPrice)
         {
             var category = this.categoriesRepo.GetById(id);
             if (category == null)
@@ -57,8 +67,15 @@ namespace ServiceSystem.Services.Data
             category.Name = name;
             category.MinPrice = minPrice;
             category.MaxPrice = maxPrice;
-            this.categoriesRepo.Save();
-            return category;
+            this.efRepoSaveChanges.SaveChanges();
+            return this.mappingService.Map<CategoryModel>(category);
+        }
+
+        public void Delete(CategoryModel categoryModel)
+        {
+            var category = this.mappingService.Map<Category>(categoryModel);
+            this.categoriesRepo.Delete(category);
+            this.efRepoSaveChanges.SaveChanges();
         }
     }
 }

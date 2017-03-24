@@ -1,9 +1,9 @@
-﻿namespace ServiceSystem.Web.Areas.Administration.Models.Categories
-{
-    using System.ComponentModel.DataAnnotations;
-    using Data.Models;
-    using Infrastructure.Mapping;
+﻿using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.Areas.Administration.Models.Categories
+{
     public class CategoryEditModel : IMapFrom<Category>
     {
         public int Id { get; set; }

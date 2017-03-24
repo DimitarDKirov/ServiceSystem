@@ -1,17 +1,15 @@
-﻿namespace ServiceSystem.Web
+﻿using System.Data.Entity;
+using System.Reflection;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+using ServiceSystem.Data;
+using ServiceSystem.Data.Migrations;
+using ServiceSystem.Infrastructure.Mapping;
+
+namespace ServiceSystem.Web
 {
-    using System.Data.Entity;
-    using System.Reflection;
-    using System.Web;
-    using System.Web.Mvc;
-    using System.Web.Optimization;
-    using System.Web.Routing;
-
-    using Data;
-    using Data.Migrations;
-
-    using Infrastructure.Mapping;
-
 #pragma warning disable SA1649 // File name must match first type name
     public class MvcApplication : HttpApplication
 #pragma warning restore SA1649 // File name must match first type name

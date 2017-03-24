@@ -1,17 +1,17 @@
-﻿namespace ServiceSystem.Web.Areas.Administration.Controllers
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Linq;
-    using System.Web.Mvc;
-    using Common;
-    using Data.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Models.Users;
-    using Web.Controllers;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure;
+using ServiceSystem.Web.Areas.Administration.Models.Users;
+using ServiceSystem.Web.Controllers;
 
+namespace ServiceSystem.Web.Areas.Administration.Controllers
+{
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class UsersController : BaseController
     {

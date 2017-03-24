@@ -46,10 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateProvider\DateTimeProvider.cs" />
+    <Compile Include="DateProvider\DefaultDateTimeProvider.cs" />
+    <Compile Include="GlobalConstants.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
-    <Compile Include="Mapping\IHaveCustomMappings.cs" />
-    <Compile Include="Mapping\IMapFrom{T}.cs" />
-    <Compile Include="Mapping\IMapTo{T}.cs" />
+    <Compile Include="Mapping\Contracts\IHaveCustomMappings.cs" />
+    <Compile Include="Mapping\Contracts\IMapFrom.cs" />
+    <Compile Include="Mapping\Contracts\IMappingService.cs" />
+    <Compile Include="Mapping\Contracts\IMapTo.cs" />
+    <Compile Include="Mapping\MappingService.cs" />
     <Compile Include="Mapping\QueryableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

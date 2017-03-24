@@ -6,6 +6,8 @@
     using Models.Prices;
     using Services.Data;
     using Web.Controllers;
+    using Services.Data.Contracts;
+    using ServiceSystem.Infrastructure.Mapping;
 
     public class PricesController : BaseController
     {
@@ -18,10 +20,12 @@
 
         public ActionResult Index()
         {
+            // TODO remove asQuerabley
             var prices = this.Cache.Get(
                 "PricesPublic",
                 () => this.categoriesService
                 .GetAll()
+                .AsQueryable()
                 .To<PricesViewModel>()
                 .ToList(),
                 24 * 60 * 60);

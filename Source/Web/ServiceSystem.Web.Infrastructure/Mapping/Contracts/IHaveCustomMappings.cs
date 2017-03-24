@@ -1,7 +1,7 @@
-﻿namespace ServiceSystem.Web.Infrastructure.Mapping
-{
-    using AutoMapper;
+﻿using AutoMapper;
 
+namespace ServiceSystem.Infrastructure.Mapping.Contracts
+{
     public interface IHaveCustomMappings
     {
         void CreateMappings(IMapperConfiguration configuration);

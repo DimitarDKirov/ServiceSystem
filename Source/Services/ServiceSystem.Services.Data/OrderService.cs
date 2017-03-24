@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using ServiceSystem.Common;
 using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure;
 
 namespace ServiceSystem.Services.Data
 {

@@ -1,17 +1,17 @@
-﻿namespace ServiceSystem.Web.Areas.Administration.Controllers
-{
-    using System;
-    using System.Linq;
-    using System.Net;
-    using System.Web.Mvc;
-    using Common;
-    using Data.Models;
-    using Infrastructure.Mapping;
-    using Models.Categories;
-    using Services.Data;
-    using Web.Controllers;
-    using Services.Web;
+﻿using System;
+using System.Linq;
+using System.Net;
+using System.Web.Mvc;
+using ServiceSystem.Infrastructure;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Data.Models;
+using ServiceSystem.Services.Web;
+using ServiceSystem.Web.Areas.Administration.Models.Categories;
+using ServiceSystem.Web.Controllers;
+using ServiceSystem.Infrastructure.Mapping;
 
+namespace ServiceSystem.Web.Areas.Administration.Controllers
+{
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class CategoriesController : BaseController
     {
@@ -25,8 +25,10 @@
 
         public ActionResult Index()
         {
+            //TODO remove AsDueryable
             var categories = this.categoriesService
                 .GetAll()
+                .AsQueryable()
                 .To<CategoriesViewModel>()
                 .ToList();
 
@@ -41,7 +43,7 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Category category = this.categoriesService.Find((int)id);
+            CategoryModel category = this.categoriesService.Find((int)id);
             if (category == null)
             {
                 this.TempData["Error"] = "Category could not be found";
@@ -83,7 +85,7 @@
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            Category category = this.categoriesService.Find(id);
+            CategoryModel category = this.categoriesService.Find(id);
 
             if (category == null)
             {
@@ -100,7 +102,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = this.categoriesService.Find(id);
+            CategoryModel category = this.categoriesService.Find(id);
             this.categoriesService.Delete(category);
             this.InvalidateCache();
             this.TempData["Success"] = "Category deleted";

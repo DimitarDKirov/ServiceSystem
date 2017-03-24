@@ -2,10 +2,10 @@
 using System.Data.Entity;
 using System.Linq;
 using Microsoft.AspNet.Identity.EntityFramework;
-using MvcTemplate.Common;
-using MvcTemplate.Data.Common.Contracts;
+using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Common.Models;
 using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.DateProvider;
 
 namespace ServiceSystem.Data
 {

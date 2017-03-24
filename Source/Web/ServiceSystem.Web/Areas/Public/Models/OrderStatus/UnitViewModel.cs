@@ -1,10 +1,10 @@
-﻿namespace ServiceSystem.Web.Areas.Public.Models.OrderStatus
-{
-    using System.ComponentModel.DataAnnotations;
-    using AutoMapper;
-    using ServiceSystem.Data.Models;
-    using ServiceSystem.Web.Infrastructure.Mapping;
+﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.Areas.Public.Models.OrderStatus
+{
     public class UnitViewModel : IMapFrom<Unit>, IHaveCustomMappings
     {
         public string Brand { get; set; }

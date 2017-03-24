@@ -1,12 +1,12 @@
-﻿namespace ServiceSystem.Web.Infrastructure.Mapping
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using AutoMapper;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
+
+namespace ServiceSystem.Infrastructure.Mapping
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection;
-
-    using AutoMapper;
-
     public class AutoMapperConfig
     {
         public static MapperConfiguration Configuration { get; private set; }

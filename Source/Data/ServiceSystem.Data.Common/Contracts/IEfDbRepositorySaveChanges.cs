@@ -1,4 +1,4 @@
-﻿namespace MvcTemplate.Data.Common.Contracts
+﻿namespace ServiceSystem.Data.Common.Contracts
 {
     public interface IEfDbRepositorySaveChanges
     {

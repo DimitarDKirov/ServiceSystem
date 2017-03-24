@@ -68,9 +68,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ServiceSystem.Common\ServiceSystem.Common.csproj">
-      <Project>{701F322F-AA01-4DDC-90B6-6935981C1E73}</Project>
-      <Name>ServiceSystem.Common</Name>
+    <ProjectReference Include="..\..\Web\ServiceSystem.Web.Infrastructure\ServiceSystem.Infrastructure.csproj">
+      <Project>{6813DC53-5EEE-4507-8604-5301EE51A0D3}</Project>
+      <Name>ServiceSystem.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceSystem.Data.Common\ServiceSystem.Data.Common.csproj">
       <Project>{edfe3c57-ef5b-4636-9ecc-d0baca6b6379}</Project>

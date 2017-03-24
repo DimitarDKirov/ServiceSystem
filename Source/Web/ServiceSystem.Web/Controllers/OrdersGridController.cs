@@ -2,13 +2,15 @@
 {
     using System.Linq;
     using System.Web.Mvc;
-    using Common;
+
     using Data.Models;
     using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Services.Data;
     using ViewModels.OrdersGrid;
+    using ServiceSystem.Infrastructure;
+    using ServiceSystem.Infrastructure.Mapping;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class OrdersGridController : BaseController
@@ -29,6 +31,7 @@
         {
             IQueryable<Order> orders = this.orderService.GetAll();
             DataSourceResult result = orders
+                .AsQueryable()
                 .To<OrdersGridViewModel>()
                 .ToDataSourceResult(request);
 

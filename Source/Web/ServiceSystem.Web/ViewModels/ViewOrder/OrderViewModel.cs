@@ -1,13 +1,10 @@
-﻿namespace ServiceSystem.Web.ViewModels.ViewOrder
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
-    using ServiceSystem.Data.Models;
-    using ServiceSystem.Web.Infrastructure.Mapping;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
 
+namespace ServiceSystem.Web.ViewModels.ViewOrder
+{
     public class OrderViewModel : IMapFrom<Order>
     {
         public UnitViewModel Unit { get; set; }
