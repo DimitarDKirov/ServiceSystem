@@ -10,11 +10,13 @@
     using Models.Categories;
     using Services.Data;
     using Web.Controllers;
+    using Services.Web;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class CategoriesController : BaseController
     {
         private ICategoriesService categoriesService;
+        private ICacheService cacheService;
 
         public CategoriesController(ICategoriesService categories)
         {
@@ -73,6 +75,7 @@
                 return this.View(model);
             }
 
+            this.InvalidateCache();
             this.TempData["Success"] = "Category updated";
             return this.RedirectToAction("Index");
         }
@@ -99,6 +102,7 @@
         {
             Category category = this.categoriesService.Find(id);
             this.categoriesService.Delete(category);
+            this.InvalidateCache();
             this.TempData["Success"] = "Category deleted";
             return this.RedirectToAction("Index");
         }
@@ -120,6 +124,7 @@
             }
 
             this.categoriesService.Create(model.Name, model.MinPrice, model.MaxPrice);
+            this.InvalidateCache();
             this.TempData["Success"] = "Category added";
             return this.RedirectToAction("Index");
         }
@@ -133,6 +138,12 @@
             }
 
             return;
+        }
+
+        private void InvalidateCache()
+        {
+            this.Cache.Remove("PricesPublic");
+            this.Cache.Remove("categoriesCombo");
         }
     }
 }
