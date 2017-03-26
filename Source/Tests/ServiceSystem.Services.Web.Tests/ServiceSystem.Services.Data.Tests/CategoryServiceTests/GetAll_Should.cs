@@ -14,8 +14,8 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.CategoryServ
     [TestClass]
     public class GetAll_Should
     {
-        [ClassInitialize]
-        public static void ConfigAutomapper(TestContext context)
+        [TestInitialize]
+        public void ConfigAutomapper()
         {
             var automapperConfig = new AutoMapperConfig();
             automapperConfig.Execute(new[] { typeof(CategoryService).Assembly });

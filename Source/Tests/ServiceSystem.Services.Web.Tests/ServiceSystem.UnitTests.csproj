@@ -108,7 +108,6 @@
     <Compile Include="ServiceSystem.Services.Data.Tests\CustomerServiceTests\CreateDbModel_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\CustomerServiceTests\FindById_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublicCodeProviderTest.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\Constructor_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\Create_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\GetById_Should.cs" />
