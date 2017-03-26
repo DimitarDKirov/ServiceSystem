@@ -111,6 +111,7 @@
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\Constructor_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\Create_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\GetById_Should.cs" />
+    <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\Update_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\UnitServiceTests\Constructor_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\UnitServiceTests\CreateDbModel_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\BrandsControllerTests\Constructor_Should.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Add_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Constructor_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Details_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Edit_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Slip_Should.cs" />
   </ItemGroup>
   <ItemGroup>

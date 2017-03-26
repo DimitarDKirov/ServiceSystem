@@ -74,9 +74,7 @@ namespace ServiceSystem.Web.Controllers
             var order = this.orderService.GetById(id);
             if (order == null)
             {
-                this.TempData["Error"] = "Order can not be found";
-                this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return this.View("Error");
+                return this.OrderNotFound();
             }
 
             var orderViewModel = this.Mapper.Map<OrderViewModel>(order);
@@ -88,18 +86,78 @@ namespace ServiceSystem.Web.Controllers
             var order = this.orderService.GetById(id);
             if (order == null)
             {
-                this.TempData["Error"] = "Order can not be found";
-                this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return this.View("Error");
+                return this.OrderNotFound();
             }
 
             var orderViewModel = this.Mapper.Map<OrderViewModel>(order);
-            bool isEditable = orderViewModel.Status != Status.Pending
-                && orderViewModel.Status != Status.Delivered
-                && order.UserId == this.User.Identity.GetUserId();
+            bool isEditable = this.IsEditable(order);
 
             orderViewModel.IsEditable = isEditable;
             return this.View(orderViewModel);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var order = this.orderService.GetById(id);
+            if (order == null)
+            {
+                return this.OrderNotFound();
+            }
+
+            if (!this.IsEditable(order))
+            {
+                return this.NotEditable(id);
+            }
+
+            var orderViewModel = this.Mapper.Map<OrderViewModel>(order);
+            return this.View(orderViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(OrderUpdateModel model)
+        {
+            var order = this.orderService.GetById(model.Id);
+            if (order == null)
+            {
+                return this.OrderNotFound();
+            }
+
+            if (!this.IsEditable(order))
+            {
+                return this.NotEditable(model.Id);
+            }
+
+            if (!this.ModelState.IsValid)
+            {
+                this.TempData["Error"] = "Input data errors. Look bellow";
+                return this.View(model);
+            }
+
+            var orderModel = this.Mapper.Map<OrderModel>(model);
+            this.orderService.Update(orderModel);
+
+            this.TempData["Success"] = "Order updated";
+            return this.RedirectToAction("Details", new { id = order.Id });
+        }
+
+        private ActionResult NotEditable(int id)
+        {
+            this.TempData["Error"] = "You are not allowed to edit this order";
+            this.Response.StatusCode = (int)HttpStatusCode.Forbidden;
+            return this.RedirectToAction("Details", new { id = id });
+        }
+
+        private bool IsEditable(OrderModel order)
+        {
+            return order.Status != Status.Pending && order.Status != Status.Delivered && order.UserId == this.User.Identity.GetUserId();
+        }
+
+        private ActionResult OrderNotFound()
+        {
+            this.TempData["Error"] = "Order can not be found";
+            this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            return this.View("Error");
         }
 
         private IEnumerable<SelectListItem> GetCategories()

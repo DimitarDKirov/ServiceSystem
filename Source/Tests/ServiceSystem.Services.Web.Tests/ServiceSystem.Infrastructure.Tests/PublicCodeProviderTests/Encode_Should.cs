@@ -9,30 +9,30 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Infrastructure.Tests.PublicCodeP
         [TestMethod]
         public void GenerateCorrectCodeWhenIdAndNameAreLongEnough()
         {
-            //Arrange
+            // Arrange
             IPublicCodeProvider codec = new PublicCodeProvider();
             var id = 1234;
             var name = "AbCd";
 
-            //Act
+            // Act
             var codedResult = codec.Encode(id, name);
 
-            //Assert
+            // Assert
             Assert.AreEqual("1234AbC", codedResult);
         }
 
         [TestMethod]
         public void GenerateCodeWithRandomSymbols_WhenNameIsShort()
         {
-            //Arramge
+            // Arramge
             IPublicCodeProvider codec = new PublicCodeProvider();
             var id = 1234;
             var name = "a";
 
-            //Act
+            // Act
             var codedResult = codec.Encode(id, name);
 
-            //Assert
+            // Assert
             Assert.AreEqual(7, codedResult.Length);
             Assert.AreEqual("1234a", codedResult.Substring(0, 5));
         }

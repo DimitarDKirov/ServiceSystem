@@ -14,34 +14,34 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.CustomerServ
         [TestMethod]
         public void ReturnInstance_WhenAllParametersAreNotNull()
         {
-            //Arrange
+            // Arrange
             var customersRepoMock = new Mock<IEfDbRepository<Customer>>();
             var mappingServiceMock = new Mock<IMappingService>();
 
-            //Act
+            // Act
             var testedService = new CustomerService(customersRepoMock.Object, mappingServiceMock.Object);
 
-            //Assert
+            // Assert
             Assert.IsNotNull(testedService);
         }
 
         [TestMethod]
         public void Throw_WhenCustomersRepoIsNull()
         {
-            //Arrange
+            // Arrange
             var mappingServiceMock = new Mock<IMappingService>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new CustomerService(null, mappingServiceMock.Object));
         }
 
         [TestMethod]
         public void Throw_WhenmappingServiceIsNull()
         {
-            //Arrange
+            // Arrange
             var customersRepoMock = new Mock<IEfDbRepository<Customer>>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new CustomerService(customersRepoMock.Object, null));
         }
     }

@@ -253,6 +253,7 @@
     <Compile Include="ViewModels\Order\CustomerViewCreateModel.cs" />
     <Compile Include="ViewModels\Order\OrderCreateModel.cs" />
     <Compile Include="ViewModels\OrdersGrid\OrdersGridViewModel.cs" />
+    <Compile Include="ViewModels\Order\OrderUpdateModel.cs" />
     <Compile Include="ViewModels\Order\UnitCreateModel.cs" />
     <Compile Include="ViewModels\ViewOrder\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\UpdateOrder\UpdateOrderModel.cs" />
@@ -524,7 +525,7 @@
     <Content Include="Views\ListOrders\Pending.cshtml" />
     <Content Include="Views\ViewOrder\Details.cshtml" />
     <Content Include="Views\Shared\_OrderViewPartial.cshtml" />
-    <Content Include="Views\UpdateOrder\Edit.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\OrdersGrid\Index.cshtml" />
@@ -560,6 +561,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\OrdersAdmin\" />
     <Folder Include="Views\Orders\" />
+    <Folder Include="Views\UpdateOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

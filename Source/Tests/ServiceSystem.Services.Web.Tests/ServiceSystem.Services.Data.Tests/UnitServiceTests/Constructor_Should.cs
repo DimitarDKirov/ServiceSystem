@@ -13,34 +13,34 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.UnitServiceT
         [TestMethod]
         public void ReturnInstance_WhenBothParametersArePassed()
         {
-            //Arrange
+            // Arrange
             var mockedBrandsService = new Mock<IBrandsService>();
             var mockedMappingService = new Mock<IMappingService>();
 
-            //Act
+            // Act
             var testedService = new UnitService(mockedBrandsService.Object, mockedMappingService.Object);
 
-            //Assert
+            // Assert
             Assert.IsNotNull(testedService);
         }
 
         [TestMethod]
         public void Throw_WhenBrandServiceIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedMappingService = new Mock<IMappingService>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new UnitService(null, mockedMappingService.Object));
         }
 
         [TestMethod]
         public void Throw_WhenmappringServiceIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedBrandsService = new Mock<IBrandsService>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new UnitService(mockedBrandsService.Object, null));
         }
 

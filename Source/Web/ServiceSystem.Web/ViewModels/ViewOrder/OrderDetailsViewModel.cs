@@ -32,7 +32,7 @@ namespace ServiceSystem.Web.ViewModels.ViewOrder
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            //configuration.CreateMap<OrderModel, OrderDetailsViewModel>()
+            // configuration.CreateMap<OrderModel, OrderDetailsViewModel>()
             //    .ForMember(o => o.User, opt => opt.MapFrom(ord => ord.User == null ? null : ord.User.UserName));
         }
     }

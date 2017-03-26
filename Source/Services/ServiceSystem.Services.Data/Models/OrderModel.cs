@@ -19,7 +19,7 @@ namespace ServiceSystem.Services.Data.Models
 
         public string UserId { get; set; }
 
-        //public string User { get; set; }
+        // public string User { get; set; }
 
         public string ProblemDescription { get; set; }
 

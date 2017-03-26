@@ -24,10 +24,10 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.UnitServiceT
 
             var testedService = new UnitService(mockedBrandsService.Object, mockedMappingService.Object);
 
-            //Act
+            // Act
             testedService.CreateDbModel(unitModelStub, brandNameStub);
 
-            //Assert
+            // Assert
             mockedBrandsService.Verify(bs => bs.CreateDbModel(It.Is<string>(s => s == brandNameStub)), Times.Once);
         }
 
@@ -51,10 +51,10 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.UnitServiceT
             var testedService = new UnitService(mockedBrandsService.Object, mockedMappingService.Object);
 
 
-            //Act
+            // Act
             testedService.CreateDbModel(unitModelStub, brandNameStub);
 
-            //Assert
+            // Assert
             mockedMappingService.Verify(ms => ms.Map<Unit>(It.Is<UnitModel>(s => s == unitModelStub)), Times.Once);
         }
 
@@ -85,10 +85,10 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.UnitServiceT
 
             var testedService = new UnitService(mockedBrandsService.Object, mockedMappingService.Object);
 
-            //Act
+            // Act
             var result = testedService.CreateDbModel(unitModelStub, brandNameStub);
 
-            //Assert
+            // Assert
             Assert.AreSame(brandStub, result.Brand);
             Assert.AreEqual(unitStub.CategoryId, result.CategoryId);
             Assert.AreEqual(unitStub.Model, result.Model);

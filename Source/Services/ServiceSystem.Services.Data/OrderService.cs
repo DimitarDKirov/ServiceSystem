@@ -9,6 +9,7 @@ using ServiceSystem.Infrastructure.Mapping.Contracts;
 using ServiceSystem.Services.Data.Models;
 using ServiceSystem.Services.Data.Contracts;
 using ServiceSystem.Infrastructure.PublicCodeProvider;
+using System;
 
 namespace ServiceSystem.Services.Data
 {
@@ -112,8 +113,19 @@ namespace ServiceSystem.Services.Data
 
         public OrderModel Update(OrderModel orderModel)
         {
-            var order = this.mappingService.Map<Order>(orderModel);
-            this.ordersRepo.Update(order);
+            var storedOrder = this.ordersRepo.GetById(orderModel.Id);
+            if (storedOrder == null)
+            {
+                throw new ArgumentException("Can not find order with Id " + orderModel.Id);
+            }
+
+            storedOrder.LabourPrice = orderModel.LabourPrice;
+            storedOrder.ProblemDescription = orderModel.ProblemDescription;
+            storedOrder.Solution = orderModel.Solution;
+            storedOrder.Status = orderModel.Status;
+            storedOrder.WarrantyStatus = orderModel.WarrantyStatus;
+
+            this.ordersRepo.Update(storedOrder);
             this.efRepoSaveData.SaveChanges();
             return orderModel;
         }

@@ -30,7 +30,7 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
 
         public ActionResult Orders_Read([DataSourceRequest]DataSourceRequest request)
         {
-            //TODO check AsQueryable
+            // TODO check AsQueryable
             var orders = this.orderService.GetAll();
             DataSourceResult result = orders
                 .AsQueryable()

@@ -21,7 +21,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void ReturnOrderModelWithThePassedId()
         {
-            //Arrange
+            // Arrange
             var searchedId = 2;
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
@@ -51,10 +51,10 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
             mockedOrderRepo.Setup(or => or.GetById(It.Is<int>(id => id == searchedId))).Returns(orderStub);
             mockedMappingService.Setup(map => map.Map<OrderModel>(It.IsAny<Order>())).Returns(orderModelStub);
 
-            //Act
+            // Act
             var result = testedService.GetById(searchedId);
 
-            //Assert
+            // Assert
             mockedOrderRepo.Verify(mr => mr.GetById(It.Is<int>(s => s == searchedId)), Times.Once);
             mockedMappingService.Verify(m => m.Map<OrderModel>(It.Is<Order>(o => o == orderStub)), Times.Once);
             Assert.AreSame(orderModelStub, result);

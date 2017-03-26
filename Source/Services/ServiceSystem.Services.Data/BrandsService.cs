@@ -12,37 +12,37 @@ namespace ServiceSystem.Services.Data
     public class BrandsService : IBrandsService
     {
         private IEfDbRepository<Brand> brandsRepo;
-        //private IEfDbRepositorySaveChanges efRepoSaveData;
-        //private IMappingService mappringService;
+        // private IEfDbRepositorySaveChanges efRepoSaveData;
+        // private IMappingService mappringService;
 
         public BrandsService(IEfDbRepository<Brand> brandsRepo/*, IEfDbRepositorySaveChanges efRepoSaveData, IMappingService mappringService*/)
         {
             Guard.WhenArgument(brandsRepo, "brandsRepo").IsNull().Throw();
-            //Guard.WhenArgument(efRepoSaveData, "efRepoSaveData").IsNull().Throw();
-            //Guard.WhenArgument(mappringService, "mappringService").IsNull().Throw();
+            // Guard.WhenArgument(efRepoSaveData, "efRepoSaveData").IsNull().Throw();
+            // Guard.WhenArgument(mappringService, "mappringService").IsNull().Throw();
 
             this.brandsRepo = brandsRepo;
-            //this.efRepoSaveData = efRepoSaveData;
-            //this.mappringService = mappringService;
+            // this.efRepoSaveData = efRepoSaveData;
+            // this.mappringService = mappringService;
         }
 
-        //public BrandModel Create(string name)
-        //{
+        // public BrandModel Create(string name)
+        // {
         //    Brand brand = this.FindExactByName(name);
 
-        //    if (brand == null)
+        // if (brand == null)
         //    {
         //        brand = new Brand
         //        {
         //            Name = name
         //        };
 
-        //        this.brandsRepo.Add(brand);
+        // this.brandsRepo.Add(brand);
         //        this.efRepoSaveData.SaveChanges();
         //    }
 
-        //    return this.mappringService.Map<BrandModel>(brand);
-        //}
+        // return this.mappringService.Map<BrandModel>(brand);
+        // }
 
         public Brand CreateDbModel(string name)
         {

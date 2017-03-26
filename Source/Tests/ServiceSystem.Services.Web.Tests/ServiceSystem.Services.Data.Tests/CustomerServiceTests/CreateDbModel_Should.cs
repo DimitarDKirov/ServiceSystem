@@ -14,7 +14,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.CustomerServ
         [TestMethod]
         public void CallMappingServiceWithPassedModel()
         {
-            //Arrange
+            // Arrange
             var customersRepoMock = new Mock<IEfDbRepository<Customer>>();
             var mappingServiceMock = new Mock<IMappingService>();
             var testedService = new CustomerService(customersRepoMock.Object, mappingServiceMock.Object);
@@ -26,17 +26,17 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.CustomerServ
                 Phone = "08111"
             };
 
-            //Act
+            // Act
             testedService.CreateDbModel(customerModelStub);
 
-            //Assert
+            // Assert
             mappingServiceMock.Verify(ms => ms.Map<Customer>(It.Is<CustomerModel>(m => m == customerModelStub)), Times.Once);
         }
 
         [TestMethod]
         public void ReturnResultFromMapping()
         {
-            //Arrange
+            // Arrange
             var customersRepoMock = new Mock<IEfDbRepository<Customer>>();
             var mappingServiceMock = new Mock<IMappingService>();
             var testedService = new CustomerService(customersRepoMock.Object, mappingServiceMock.Object);
@@ -51,10 +51,10 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.CustomerServ
             };
             mappingServiceMock.Setup(ms => ms.Map<Customer>(It.IsAny<CustomerModel>())).Returns(customerStub);
 
-            //Act
+            // Act
             var result = testedService.CreateDbModel(customerModel);
 
-            //Assert
+            // Assert
             Assert.AreSame(customerStub, result);
         }
     }

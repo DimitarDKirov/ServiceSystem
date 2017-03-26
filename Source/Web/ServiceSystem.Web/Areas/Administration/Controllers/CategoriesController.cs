@@ -25,7 +25,7 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
-            //TODO remove AsDueryable
+            // TODO remove AsDueryable
             var categories = this.categoriesService
                 .GetAll()
                 .AsQueryable()

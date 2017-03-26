@@ -20,7 +20,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void ReturnAnInstance_WhenAllParametersArePassed()
         {
-            //Arrange
+            // Arrange
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
             var mockedMappingService = new Mock<IMappingService>();
@@ -28,7 +28,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
             var mockedCustomerService = new Mock<ICustomerService>();
             var mockedPublicCodeProvider = new Mock<IPublicCodeProvider>();
 
-            //Act
+            // Act
             var testedService = new OrderService(
                 mockedOrderRepo.Object,
                 mockedSaveChagesRepo.Object,
@@ -37,21 +37,21 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
                 mockedCustomerService.Object,
                 mockedPublicCodeProvider.Object);
 
-            //Assert
+            // Assert
             Assert.IsNotNull(testedService);
         }
 
         [TestMethod]
         public void Throw_WhenOrdersRepositoryIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
             var mockedMappingService = new Mock<IMappingService>();
             var mockedUnitService = new Mock<IUnitService>();
             var mockedCustomerService = new Mock<ICustomerService>();
             var mockedPublicCodeProvider = new Mock<IPublicCodeProvider>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new OrderService(
                 null,
                 mockedSaveChagesRepo.Object,
@@ -64,14 +64,14 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void Throw_WhenSaveChangesRepositoryIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedMappingService = new Mock<IMappingService>();
             var mockedUnitService = new Mock<IUnitService>();
             var mockedCustomerService = new Mock<ICustomerService>();
             var mockedPublicCodeProvider = new Mock<IPublicCodeProvider>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new OrderService(
                 mockedOrderRepo.Object,
                 null,
@@ -84,14 +84,14 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void Throw_WhenMappingServiceIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
             var mockedUnitService = new Mock<IUnitService>();
             var mockedCustomerService = new Mock<ICustomerService>();
             var mockedPublicCodeProvider = new Mock<IPublicCodeProvider>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new OrderService(
                 mockedOrderRepo.Object,
                 mockedSaveChagesRepo.Object,
@@ -104,14 +104,14 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void Throw_WhenUnitServiceIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
             var mockedMappingService = new Mock<IMappingService>();
             var mockedCustomerService = new Mock<ICustomerService>();
             var mockedPublicCodeProvider = new Mock<IPublicCodeProvider>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new OrderService(
                 mockedOrderRepo.Object,
                 mockedSaveChagesRepo.Object,
@@ -124,14 +124,14 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void Throw_WhenCustomerServiceIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
             var mockedMappingService = new Mock<IMappingService>();
             var mockedUnitService = new Mock<IUnitService>();
             var mockedPublicCodeProvider = new Mock<IPublicCodeProvider>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new OrderService(
                 mockedOrderRepo.Object,
                 mockedSaveChagesRepo.Object,
@@ -144,14 +144,14 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void Throw_WhenPublicCodeServiceIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
             var mockedMappingService = new Mock<IMappingService>();
             var mockedUnitService = new Mock<IUnitService>();
             var mockedCustomerService = new Mock<ICustomerService>();
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => new OrderService(
                 mockedOrderRepo.Object,
                 mockedSaveChagesRepo.Object,

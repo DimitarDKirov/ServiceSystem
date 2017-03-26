@@ -1,13 +1,13 @@
-﻿@model ServiceSystem.Web.ViewModels.UpdateOrder.UpdateOrderModel
+﻿@model ServiceSystem.Web.ViewModels.Order.OrderViewModel
 <h2>Order @Model.Id</h2>
-@Html.Action("CommonDetails", "ViewOrder", new { id = Model.Id })
+@Html.Partial("_OrderViewPartial", Model)
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-inline">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         <div class="panel panel-info">
             <div class="panel-heading">Problem</div>
             <div class="panel-body">@Html.EditorFor(m => m.ProblemDescription, new { htmlAttributes = new { @class = "form-control" } })</div>
@@ -16,7 +16,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">Solution</div>
             <div class="panel-body">@Html.EditorFor(m => m.Solution, new { htmlAttributes = new { @class = "form-control" } })</div>
-            <div>@Html.ValidationMessageFor(m=>m.Solution)</div>
+            <div>@Html.ValidationMessageFor(m => m.Solution)</div>
         </div>
 
         <div class="row">
@@ -30,8 +30,11 @@
                 @Html.LabelFor(m => m.LabourPrice): @Html.EditorFor(m => m.LabourPrice, new { htmlAttributes = new { @class = "form-control" } }) BGN
             </div>
             <div class="form-group col-md-1">
-                <input type="submit" value="Save" class="btn btn-primary form-control"/>
+                <input type="submit" value="Save" class="btn btn-primary form-control" />
             </div>
         </div>
     </div>
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
 }

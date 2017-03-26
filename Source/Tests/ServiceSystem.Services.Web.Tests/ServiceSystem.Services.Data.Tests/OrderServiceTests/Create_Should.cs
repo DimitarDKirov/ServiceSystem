@@ -21,7 +21,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         [TestMethod]
         public void CallCustomerServiceWithCustomerModel()
         {
-            //Arrange
+            // Arrange
             var customerModelStub = new CustomerModel()
             {
                 Name = "name"
@@ -63,17 +63,17 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
                mockedCustomerService.Object,
                mockedPublicCodeProvider.Object);
 
-            //Act
+            // Act
             testedService.Create(orderModelStub);
 
-            //Assert
+            // Assert
             mockedCustomerService.Verify(cs => cs.CreateDbModel(It.Is<CustomerModel>(cm => cm == customerModelStub)), Times.Once);
         }
 
         [TestMethod]
         public void CallUnitServiceWithUnitModelAndBrandName()
         {
-            //Arrange
+            // Arrange
             var brandName = "brand";
             var customerModelStub = new CustomerModel()
             {
@@ -119,17 +119,17 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
                mockedCustomerService.Object,
                mockedPublicCodeProvider.Object);
 
-            //Act
+            // Act
             testedService.Create(orderModelStub);
 
-            //Assert
+            // Assert
             mockedUnitService.Verify(us => us.CreateDbModel(It.Is<UnitModel>(um => um == unitModelStub), It.Is<string>(s => s == brandName)), Times.Once);
         }
 
         [TestMethod]
         public void CallEfRepositoryAddWithOrderModelAndStatusSetToPending()
         {
-            //Arrange
+            // Arrange
             var brandName = "brand";
             var customerModelStub = new CustomerModel()
             {
@@ -174,17 +174,17 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
                mockedCustomerService.Object,
                mockedPublicCodeProvider.Object);
 
-            //Act
+            // Act
             testedService.Create(orderModelStub);
 
-            //Assert
+            // Assert
             mockedOrderRepo.Verify(or => or.Add(It.Is<Order>(o => o == orderStub && o.Customer == customerStub && o.Unit == unitStub && o.Status == Status.Pending)));
         }
 
         [TestMethod]
         public void CallSaveChangesTwice()
         {
-            //Arrange
+            // Arrange
             var brandName = "brand";
             var customerModelStub = new CustomerModel()
             {
@@ -228,17 +228,17 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
                mockedCustomerService.Object,
                mockedPublicCodeProvider.Object);
 
-            //Act
+            // Act
             testedService.Create(orderModelStub);
 
-            //Assert
+            // Assert
             mockedSaveChagesRepo.Verify(sc => sc.SaveChanges(), Times.Exactly(2));
         }
 
         [TestMethod]
         public void Throw_WhenOrderModelIsNull()
         {
-            //Arrange
+            // Arrange
             var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
             var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
             var mockedMappingService = new Mock<IMappingService>();
@@ -254,7 +254,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
                mockedCustomerService.Object,
                mockedPublicCodeProvider.Object);
 
-            //Act & Assert
+            // Act & Assert
             Assert.ThrowsException<ArgumentNullException>(() => testedService.Create(null));
         }
     }
