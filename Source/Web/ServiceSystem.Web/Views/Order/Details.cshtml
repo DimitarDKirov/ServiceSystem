@@ -27,19 +27,16 @@
     <div class="col-md-offset-1">
         @if (Model.Status == ServiceSystem.Data.Models.Status.Pending)
         {
-            @Html.ActionLink("Assign", "Assign", "UpdateOrder", new { id = Model.Id }, new { @class = "btn btn-warning" });
+            @Html.ActionLink("Assign", "Assign", new { id = Model.Id }, new { @class = "btn btn-warning" });
         }
-        @if (Model.Status == ServiceSystem.Data.Models.Status.Ready)
-        {
-            @Html.ActionLink("Deliver!", "Deliver", "UpdateOrder", new { id = Model.Id }, new { @class = "btn btn-warning" });
-        }
+        @*@if (Model.Status == ServiceSystem.Data.Models.Status.Ready)
+            {
+                @Html.ActionLink("Deliver!", "Deliver", "UpdateOrder", new { id = Model.Id }, new { @class = "btn btn-warning" });
+            }*@
         @if (Model.IsEditable)
-        {
-            @Html.ActionLink("Update", "Edit", new { id = Model.Id }, new { @class = "btn btn-info" });
-        }
+            {
+                @Html.ActionLink("Update", "Edit", new { id = Model.Id }, new { @class = "btn btn-info" });
+            }
+        </div>
     </div>
-</div>
-
-
-
 

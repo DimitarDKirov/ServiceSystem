@@ -19,5 +19,7 @@ namespace ServiceSystem.Services.Data.Contracts
         IEnumerable<OrderModel> GetAll();
 
         void Delete(int id);
+
+        void Assign(int id, string userId);
     }
 }

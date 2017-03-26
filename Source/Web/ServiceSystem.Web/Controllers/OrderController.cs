@@ -141,6 +141,26 @@ namespace ServiceSystem.Web.Controllers
             return this.RedirectToAction("Details", new { id = order.Id });
         }
 
+        public ActionResult Assign(int id)
+        {
+            try
+            {
+                this.orderService.Assign(id, this.User.Identity.GetUserId());
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                return this.OrderNotFound();
+            }
+            catch (ArgumentException ex)
+            {
+                this.TempData["Error"] = ex.Message;
+                return this.RedirectToAction("Details", new { id });
+            }
+
+            this.TempData["Success"] = "You are assigned to order " + id;
+            return this.RedirectToAction("Details", new { id });
+        }
+
         private ActionResult NotEditable(int id)
         {
             this.TempData["Error"] = "You are not allowed to edit this order";

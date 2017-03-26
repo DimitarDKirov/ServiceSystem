@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Bytes2you.Validation;
 using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure;
+using ServiceSystem.Infrastructure.DateProvider;
 using ServiceSystem.Infrastructure.Mapping;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
-using ServiceSystem.Services.Data.Models;
-using ServiceSystem.Services.Data.Contracts;
 using ServiceSystem.Infrastructure.PublicCodeProvider;
-using System;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Services.Data
 {
@@ -37,6 +38,26 @@ namespace ServiceSystem.Services.Data
             this.unitService = unitService;
             this.customerService = customerService;
             this.publicCodeProvider = publicCodeProvider;
+        }
+
+        public void Assign(int id, string userId)
+        {
+            var order = this.ordersRepo.GetById(id);
+            if (order == null)
+            {
+                throw new ArgumentOutOfRangeException("Order not found");
+            }
+
+            if (order.Status != Status.Pending)
+            {
+                throw new ArgumentException("You can not be assigned to this order");
+            }
+
+            order.UserId = userId;
+            order.Status = Status.InProcess;
+            order.RepairStartDate = DateTimeProvider.Current.UtcNow;
+            this.ordersRepo.Update(order);
+            this.efRepoSaveData.SaveChanges();
         }
 
         public int Count(Status status)
