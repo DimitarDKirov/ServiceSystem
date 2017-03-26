@@ -2,10 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Web.ViewModels.OrdersGrid
 {
-    public class OrdersGridViewModel : IMapFrom<Order>
+    public class OrdersGridViewModel : IMapFrom<OrderModel>
     {
         [Display(Name = "Order number")]
         public int Id { get; set; }

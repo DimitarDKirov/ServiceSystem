@@ -1,35 +1,51 @@
-﻿using ServiceSystem.Data.Common.Contracts;
+﻿using Bytes2you.Validation;
+using ServiceSystem.Data.Common.Contracts;
 using ServiceSystem.Data.Models;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Services.Data
 {
     public class CustomerService : ICustomerService
     {
-        private IEfDbRepository<Customer> customerService;
+        private IEfDbRepository<Customer> customersRepo;
+        //private IEfDbRepositorySaveChanges efRepoSaveChanges;
+        private IMappingService mappingService;
 
-        public CustomerService(IEfDbRepository<Customer> customers)
+        public CustomerService(IEfDbRepository<Customer> customersRepo,/* IEfDbRepositorySaveChanges efRepoSaveChanges,*/ IMappingService mappingService)
         {
-            this.customerService = customers;
+            Guard.WhenArgument(customersRepo, "customersRepo").IsNull().Throw();
+            //Guard.WhenArgument(efRepoSaveChanges, "efRepoSaveChanges").IsNull().Throw();
+            Guard.WhenArgument(mappingService, "mappingService").IsNull().Throw();
+
+            this.customersRepo = customersRepo;
+            //this.efRepoSaveChanges = efRepoSaveChanges;
+            this.mappingService = mappingService;
         }
 
-        public Customer Create(string name, string phone, string email)
-        {
-            var customer = new Customer()
-            {
-                Name = name,
-                Email = email,
-                Phone = phone
-            };
+        // TODO check if needed
+        //public CustomerModel Create(CustomerModel model)
+        //{
+        //    var customer = this.mappingService.Map<Customer>(model);
 
-            this.customerService.Add(customer);
-            this.customerService.Save();
+        //    this.customersRepo.Add(customer);
+        //    this.efRepoSaveChanges.SaveChanges();
+
+        //    return this.mappingService.Map<CustomerModel>(customer);
+        //}
+
+        public Customer CreateDbModel(CustomerModel model)
+        {
+            var customer = this.mappingService.Map<Customer>(model);
 
             return customer;
         }
 
-        public Customer FindById(int id)
+        public CustomerModel FindById(int id)
         {
-            return this.customerService.GetById(id);
+            var customer = this.customersRepo.GetById(id);
+            return this.mappingService.Map<CustomerModel>(customer);
         }
     }
 }

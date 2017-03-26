@@ -1,20 +1,17 @@
-﻿namespace MvcTemplate.Web.Controllers.Tests
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using Moq;
-    using NUnit.Framework;
-    using NUnit.Framework.Internal;
-    using ServiceSystem.Data.Models;
-    using ServiceSystem.Services.Data;
-    using ServiceSystem.Web.Areas.Administration.Controllers;
-    using ServiceSystem.Web.Areas.Administration.Models.Categories;
-    using ServiceSystem.Web.Infrastructure.Mapping;
-    using TestStack.FluentMVCTesting;
-    using ServiceSystem.Services.Data.Contracts;
-    using ServiceSystem.Services.Data.Models;
-    using ServiceSystem.Infrastructure.Mapping;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Moq;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
+using ServiceSystem.Infrastructure.Mapping;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Data.Models;
+using ServiceSystem.Web.Areas.Administration.Controllers;
+using ServiceSystem.Web.Areas.Administration.Models.Categories;
+using TestStack.FluentMVCTesting;
 
+namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.Tests
+{
     [TestFixture]
     public class AdministrationCategoriesControllerTest
     {
@@ -40,9 +37,9 @@
         public void IndexShouldWorkCorrectly()
         {
             var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute(typeof(CategoriesController).Assembly);
+            autoMapperConfig.Execute(new[] { typeof(CategoriesController).Assembly });
 
-            var categoriesServiceMock = new Mock<ICategoriesService>();
+            var categoriesServiceMock = new Mock<ICategoryService>();
             categoriesServiceMock.Setup(x => x.GetAll())
                 .Returns(this.categories);
             var controller = new CategoriesController(categoriesServiceMock.Object);
@@ -58,9 +55,9 @@
         public void EditShouldWorkCorrectly()
         {
             var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute(typeof(CategoriesController).Assembly);
+            autoMapperConfig.Execute(new[] { typeof(CategoriesController).Assembly });
 
-            var categoriesServiceMock = new Mock<ICategoriesService>();
+            var categoriesServiceMock = new Mock<ICategoryService>();
             categoriesServiceMock.Setup(x => x.Find(It.IsAny<int>()))
                 .Returns(this.categories[0]);
             var controller = new CategoriesController(categoriesServiceMock.Object);

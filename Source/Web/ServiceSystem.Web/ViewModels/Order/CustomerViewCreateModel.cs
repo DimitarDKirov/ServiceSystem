@@ -1,8 +1,10 @@
-﻿namespace ServiceSystem.Web.ViewModels.CreateOrder
-{
-    using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
-    public class CustomerCreateModel
+namespace ServiceSystem.Web.ViewModels.Order
+{
+    public class CustomerViewCreateModel : IMapFrom<CustomerModel>, IMapTo<CustomerModel>
     {
         [Required]
         [MaxLength(50)]

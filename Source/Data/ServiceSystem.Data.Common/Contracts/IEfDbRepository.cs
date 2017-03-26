@@ -17,7 +17,7 @@ namespace ServiceSystem.Data.Common.Contracts
 
         T GetById(TKey id);
 
-        void Add(T entity);
+        T Add(T entity);
 
         void Delete(T entity);
 

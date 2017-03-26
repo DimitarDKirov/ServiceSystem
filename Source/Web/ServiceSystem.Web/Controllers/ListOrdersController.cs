@@ -9,6 +9,8 @@
     using ViewModels.ListOrders;
     using ServiceSystem.Infrastructure;
     using ServiceSystem.Infrastructure.Mapping;
+    using Data.Models;
+    using Services.Data.Contracts;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class ListOrdersController : BaseController
@@ -26,10 +28,11 @@
 
             var orders = this.orderService
                 .ListPaged(currentPage)
+                .AsQueryable()
                 .To<ListedOrderViewModel>()
                 .ToList();
 
-            var allItemsCount = this.orderService.CountPending();
+            var allItemsCount = this.orderService.Count(Status.Pending);
             var totalPages = (int)Math.Ceiling(allItemsCount / (decimal)GlobalConstants.PageSize);
 
             var model = new ListOrdersViewModel

@@ -15,10 +15,10 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class CategoriesController : BaseController
     {
-        private ICategoriesService categoriesService;
+        private ICategoryService categoriesService;
         private ICacheService cacheService;
 
-        public CategoriesController(ICategoriesService categories)
+        public CategoriesController(ICategoryService categories)
         {
             this.categoriesService = categories;
         }

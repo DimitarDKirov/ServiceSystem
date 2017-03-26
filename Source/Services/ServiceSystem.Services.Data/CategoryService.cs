@@ -11,13 +11,13 @@ using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Services.Data
 {
-    public class CategoriesService : ICategoriesService
+    public class CategoryService : ICategoryService
     {
         private IEfDbRepository<Category> categoriesRepo;
         private IEfDbRepositorySaveChanges efRepoSaveChanges;
         private IMappingService mappingService;
 
-        public CategoriesService(IEfDbRepository<Category> categoriesRepo, IEfDbRepositorySaveChanges efRepoSaveChanges, IMappingService mappingService)
+        public CategoryService(IEfDbRepository<Category> categoriesRepo, IEfDbRepositorySaveChanges efRepoSaveChanges, IMappingService mappingService)
         {
             Guard.WhenArgument(categoriesRepo, "categoriesRepo").IsNull().Throw();
             Guard.WhenArgument(efRepoSaveChanges, "efRepoSaveChanges").IsNull().Throw();
@@ -28,8 +28,13 @@ namespace ServiceSystem.Services.Data
             this.mappingService = mappingService;
         }
 
-        public CategoryModel Create(string name, decimal minPrice, decimal maxPrice)
+        public void Create(string name, decimal minPrice, decimal maxPrice)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentException("Name must be specified");
+            }
+
             var category = new Category
             {
                 Name = name,
@@ -37,9 +42,8 @@ namespace ServiceSystem.Services.Data
                 MaxPrice = maxPrice
             };
 
-            this.categoriesRepo.Add(category);
+            var savedCategory = this.categoriesRepo.Add(category);
             this.efRepoSaveChanges.SaveChanges();
-            return this.mappingService.Map<CategoryModel>(category);
         }
 
         public CategoryModel Find(int id)

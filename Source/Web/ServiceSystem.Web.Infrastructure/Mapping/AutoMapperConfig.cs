@@ -11,16 +11,19 @@ namespace ServiceSystem.Infrastructure.Mapping
     {
         public static MapperConfiguration Configuration { get; private set; }
 
-        public void Execute(Assembly assembly)
+        public void Execute(Assembly[] assemblies)
         {
             Configuration = new MapperConfiguration(
                 cfg =>
-                {
-                    var types = assembly.GetExportedTypes();
-                    LoadStandardMappings(types, cfg);
-                    LoadReverseMappings(types, cfg);
-                    LoadCustomMappings(types, cfg);
-                });
+               {
+                   foreach (var assembly in assemblies)
+                   {
+                       var types = assembly.GetExportedTypes();
+                       LoadStandardMappings(types, cfg);
+                       LoadReverseMappings(types, cfg);
+                       LoadCustomMappings(types, cfg);
+                   }
+               });
         }
 
         private static void LoadStandardMappings(IEnumerable<Type> types, IMapperConfiguration mapperConfiguration)

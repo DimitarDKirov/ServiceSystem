@@ -1,23 +1,22 @@
-﻿namespace ServiceSystem.Services.Data
-{
-    using System.Linq;
-    using ServiceSystem.Data.Models;
+﻿using System.Collections.Generic;
+using ServiceSystem.Data.Models;
+using ServiceSystem.Services.Data.Models;
 
+namespace ServiceSystem.Services.Data.Contracts
+{
     public interface IOrderService
     {
-        Order Create(Order order);
+        OrderModel Create(OrderModel order);
 
-        Order AddPublicId(int orderId, string code);
+        OrderModel GetById(int id);
 
-        Order GetById(int id);
+        IEnumerable<OrderModel> ListPaged(int page);
 
-        IQueryable<Order> ListPaged(int page);
+        int Count(Status status);
 
-        int CountPending();
+        OrderModel Update(OrderModel order);
 
-        Order Update(Order order);
-
-        IQueryable<Order> GetAll();
+        IEnumerable<OrderModel> GetAll();
 
         void Delete(int id);
     }

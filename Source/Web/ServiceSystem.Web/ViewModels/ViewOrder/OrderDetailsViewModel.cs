@@ -2,10 +2,11 @@
 using AutoMapper;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Web.ViewModels.ViewOrder
 {
-    public class OrderDetailsViewModel : IMapFrom<Order>, IHaveCustomMappings
+    public class OrderDetailsViewModel : IMapFrom<OrderModel>, IHaveCustomMappings
     {
         [Display(Name = "Order number")]
         public int Id { get; set; }
@@ -31,8 +32,8 @@ namespace ServiceSystem.Web.ViewModels.ViewOrder
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Order, OrderDetailsViewModel>()
-                .ForMember(o => o.User, opt => opt.MapFrom(ord => ord.User == null ? null : ord.User.UserName));
+            //configuration.CreateMap<OrderModel, OrderDetailsViewModel>()
+            //    .ForMember(o => o.User, opt => opt.MapFrom(ord => ord.User == null ? null : ord.User.UserName));
         }
     }
 }

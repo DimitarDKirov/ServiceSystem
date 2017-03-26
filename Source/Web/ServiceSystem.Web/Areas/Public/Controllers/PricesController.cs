@@ -11,9 +11,9 @@
 
     public class PricesController : BaseController
     {
-        private ICategoriesService categoriesService;
+        private ICategoryService categoriesService;
 
-        public PricesController(ICategoriesService service)
+        public PricesController(ICategoryService service)
         {
             this.categoriesService = service;
         }

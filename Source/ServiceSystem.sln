@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{99FC36D3-D963-4263-BF69-8BD11F801E2B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0C12FAF3-85BC-43E1-ABB2-6799213942CB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{0C12FAF3-85BC-43E1-ABB2-6799213942CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{8103CD5B-2A92-401C-A854-A31E0FD44DE6}"
 EndProject
@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{33E0499A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSystem.Services.Web", "Services\ServiceSystem.Services.Web\ServiceSystem.Services.Web.csproj", "{DEAB17A2-58C1-448C-8A66-D49C3AF7FC6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSystem.Services.Web.Tests", "Tests\ServiceSystem.Services.Web.Tests\ServiceSystem.Services.Web.Tests.csproj", "{D0D962BD-363D-4A22-9DB1-53136CE8EBF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSystem.UnitTests", "Tests\ServiceSystem.Services.Web.Tests\ServiceSystem.UnitTests.csproj", "{D0D962BD-363D-4A22-9DB1-53136CE8EBF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSystem.Web.Routes.Tests", "Tests\ServiceSystem.Web.Routes.Tests\ServiceSystem.Web.Routes.Tests.csproj", "{C3A300EF-D136-4334-9211-466B9E699339}"
 EndProject

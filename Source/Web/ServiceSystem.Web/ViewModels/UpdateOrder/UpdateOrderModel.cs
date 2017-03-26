@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Web.ViewModels.UpdateOrder
 {
-    public class UpdateOrderModel : IMapFrom<Order>
+    public class UpdateOrderModel : IMapFrom<OrderModel>
     {
         [Display(Name = "Order number")]
         public int Id { get; set; }

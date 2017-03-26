@@ -1,7 +1,7 @@
-﻿namespace ServiceSystem.Services.Web
-{
-    using System;
+﻿using System;
 
+namespace ServiceSystem.Infrastructure.PublicCodeProvider
+{
     public class PublicCodeProvider : IPublicCodeProvider
     {
         public int Decode(string codedInput)

@@ -3,6 +3,7 @@
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using ServiceSystem.Services.Web;
+    using ServiceSystem.Infrastructure.PublicCodeProvider;
 
     [TestClass]
     public class PublicCodeProviderTest

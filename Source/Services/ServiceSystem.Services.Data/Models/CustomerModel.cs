@@ -3,7 +3,7 @@ using ServiceSystem.Infrastructure.Mapping.Contracts;
 
 namespace ServiceSystem.Services.Data.Models
 {
-    public class CustomerModel : IMapFrom<Customer>
+    public class CustomerModel : IMapFrom<Customer>, IMapTo<Customer>
     {
         public int Id { get; set; }
 

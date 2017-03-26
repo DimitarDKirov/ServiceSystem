@@ -1,15 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
-namespace ServiceSystem.Web.ViewModels.ViewOrder
+namespace ServiceSystem.Web.ViewModels.Order
 {
-    public class OrderViewModel : IMapFrom<Order>
+    public class OrderViewModel : IMapFrom<OrderModel>
     {
         public UnitViewModel Unit { get; set; }
 
-        public CustomerViewModel Customer { get; set; }
+        public CustomerViewCreateModel Customer { get; set; }
 
         public int Id { get; set; }
 

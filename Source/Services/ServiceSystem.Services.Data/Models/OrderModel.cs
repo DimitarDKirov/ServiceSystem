@@ -4,7 +4,7 @@ using ServiceSystem.Infrastructure.Mapping.Contracts;
 
 namespace ServiceSystem.Services.Data.Models
 {
-    public class OrderModel : IMapFrom<Order>
+    public class OrderModel : IMapFrom<Order>, IMapTo<Order>
     {
         public int Id { get; set; }
 
@@ -29,5 +29,13 @@ namespace ServiceSystem.Services.Data.Models
         public DateTime? WarrantyDate { get; set; }
 
         public decimal LabourPrice { get; set; }
+
+        public Status Status { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public UnitModel Unit { get; set; }
+
+        public CustomerModel Customer { get; set; }
     }
 }

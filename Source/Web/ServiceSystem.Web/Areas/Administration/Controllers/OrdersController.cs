@@ -4,10 +4,12 @@ using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure;
+using ServiceSystem.Infrastructure.Mapping;
 using ServiceSystem.Services.Data;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Services.Data.Models;
 using ServiceSystem.Web.Areas.Administration.Models.Orders;
 using ServiceSystem.Web.Controllers;
-using ServiceSystem.Infrastructure.Mapping;
 
 namespace ServiceSystem.Web.Areas.Administration.Controllers
 {
@@ -28,8 +30,10 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
 
         public ActionResult Orders_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Order> orders = this.orderService.GetAll();
+            //TODO check AsQueryable
+            var orders = this.orderService.GetAll();
             DataSourceResult result = orders
+                .AsQueryable()
                 .To<OrdersModel>()
                 .ToDataSourceResult(request);
 
@@ -41,7 +45,7 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                var entity = new Order
+                var entity = new OrderModel
                 {
                     RepairStartDate = order.RepairStartDate,
                     RepairEndDate = order.RepairEndDate,

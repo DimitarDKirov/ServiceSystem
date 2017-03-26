@@ -1,8 +1,8 @@
-﻿@model ServiceSystem.Web.ViewModels.CreateOrder.OrderCreateModel
+﻿@model ServiceSystem.Web.ViewModels.Order.OrderCreateModel
 
 <h1>Create order</h1>
 <div>
-    @using (Html.BeginForm("Add", "CreateOrder", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("Add", "Order", FormMethod.Post, new { @class = "form-horizontal" }))
     {
         @Html.AntiForgeryToken();
         @Html.ValidationSummary();
@@ -106,14 +106,14 @@
                 </div>
             </div>
         </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">Problem Description</div>
-                <div class="panel-body">
-                    @Html.TextAreaFor(m => m.ProblemDescription, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.ProblemDescription)
-                </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Problem Description</div>
+            <div class="panel-body">
+                @Html.TextAreaFor(m => m.ProblemDescription, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ProblemDescription)
             </div>
-                <input type="Submit" value="Create" class="btn btn-primary" />
+        </div>
+            <input type="Submit" value="Create" class="btn btn-primary" />
     }
 </div>
 

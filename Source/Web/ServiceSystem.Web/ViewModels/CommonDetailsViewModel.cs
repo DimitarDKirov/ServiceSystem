@@ -2,14 +2,16 @@
 using System.ComponentModel.DataAnnotations;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
+using ServiceSystem.Web.ViewModels.Order;
 
 namespace ServiceSystem.Web.ViewModels
 {
-    public class CommonDetailsViewModel : IMapFrom<Order>
+    public class CommonDetailsViewModel : IMapFrom<OrderModel>
     {
         public UnitViewModel Unit { get; set; }
 
-        public CustomerViewModel Customer { get; set; }
+        public CustomerViewCreateModel Customer { get; set; }
 
         [Display(Name = "Order number")]
         public int Id { get; set; }

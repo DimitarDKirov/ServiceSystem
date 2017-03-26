@@ -1,11 +1,14 @@
-﻿namespace ServiceSystem.Services.Data
-{
-    using ServiceSystem.Data.Models;
+﻿using ServiceSystem.Data.Models;
+using ServiceSystem.Services.Data.Models;
 
+namespace ServiceSystem.Services.Data.Contracts
+{
     public interface ICustomerService
     {
-        Customer Create(string name, string phone, string email);
+       // CustomerModel Create(CustomerModel model);
 
-        Customer FindById(int id);
+        Customer CreateDbModel(CustomerModel model);
+
+        CustomerModel FindById(int id);
     }
 }

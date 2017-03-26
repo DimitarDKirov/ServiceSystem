@@ -9,6 +9,7 @@
     using Services.Data;
     using ViewModels.UpdateOrder;
     using ServiceSystem.Infrastructure;
+    using Services.Data.Contracts;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class UpdateOrderController : BaseController

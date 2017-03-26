@@ -11,6 +11,7 @@
     using ViewModels.OrdersGrid;
     using ServiceSystem.Infrastructure;
     using ServiceSystem.Infrastructure.Mapping;
+    using Services.Data.Contracts;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class OrdersGridController : BaseController
@@ -29,7 +30,7 @@
 
         public ActionResult Orders_Read([DataSourceRequest]DataSourceRequest request)
         {
-            IQueryable<Order> orders = this.orderService.GetAll();
+            var orders = this.orderService.GetAll();
             DataSourceResult result = orders
                 .AsQueryable()
                 .To<OrdersGridViewModel>()

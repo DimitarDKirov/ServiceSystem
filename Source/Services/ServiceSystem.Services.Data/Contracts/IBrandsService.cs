@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ServiceSystem.Data.Models;
 using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Services.Data.Contracts
@@ -7,6 +8,6 @@ namespace ServiceSystem.Services.Data.Contracts
     {
         IEnumerable<string> FindByName(string brand);
 
-        BrandModel Create(string brand);
+        Brand CreateDbModel(string name);
     }
 }

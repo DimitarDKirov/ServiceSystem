@@ -1,4 +1,4 @@
-﻿@if (this.User.IsInRole(ServiceSystem.Common.GlobalConstants.AdministratorRoleName))
+﻿@if (this.User.IsInRole(ServiceSystem.Infrastructure.GlobalConstants.AdministratorRoleName))
 {
     <ul class="nav navbar-nav navbar-right">
        <li>@Html.ActionLink("Administration", "Index", "Administration", new { area = "Administration" }, null)</li>

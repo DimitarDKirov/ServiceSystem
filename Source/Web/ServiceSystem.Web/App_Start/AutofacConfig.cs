@@ -16,6 +16,9 @@
     using Services.Web;
     using Data.Common.Contracts;
     using Services.Data.Contracts;
+    using Infrastructure.Mapping;
+    using ServiceSystem.Infrastructure.Mapping.Contracts;
+    using Infrastructure.PublicCodeProvider;
 
     public static class AutofacConfig
     {
@@ -51,6 +54,7 @@
         {
             builder.Register(x => new ApplicationDbContext())
                 .As<DbContext>()
+                .As<IEfDbRepositorySaveChanges>()
                 .InstancePerRequest();
             builder.Register(x => new HttpCacheService())
                 .As<ICacheService>()
@@ -58,8 +62,11 @@
             builder.Register(x => new PublicCodeProvider())
                 .As<IPublicCodeProvider>()
                 .InstancePerRequest();
+            builder.Register(x => new MappingService())
+                .As<IMappingService>()
+                .InstancePerRequest();
 
-            var servicesAssembly = Assembly.GetAssembly(typeof(ICategoriesService));
+            var servicesAssembly = Assembly.GetAssembly(typeof(ICategoryService));
             builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
 
             builder.RegisterGeneric(typeof(EfDbRepository<>))

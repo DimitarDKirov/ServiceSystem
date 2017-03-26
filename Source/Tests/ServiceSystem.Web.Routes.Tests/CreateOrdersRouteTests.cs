@@ -15,7 +15,7 @@
             string url = "/Order/Create";
             var routeCollection = new RouteCollection();
             RouteConfig.RegisterRoutes(routeCollection);
-            routeCollection.ShouldMap(url).To<CreateOrderController>(c => c.Index());
+            routeCollection.ShouldMap(url).To<OrderController>(c => c.Add());
         }
 
         [Test]
@@ -24,7 +24,7 @@
             string url = "/Order/Create/Add/";
             var routeCollection = new RouteCollection();
             RouteConfig.RegisterRoutes(routeCollection);
-            routeCollection.ShouldMap(url).To<CreateOrderController>(c => c.Add(null));
+            routeCollection.ShouldMap(url).To<OrderController>(c => c.Add(null));
         }
     }
 }

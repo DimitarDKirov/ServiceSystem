@@ -1,10 +1,10 @@
-﻿namespace ServiceSystem.Web.ViewModels.CreateOrder
-{
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
+﻿using System.ComponentModel.DataAnnotations;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
-    public class UnitCreateModel
+namespace ServiceSystem.Web.ViewModels.Order
+{
+    public class UnitCreateModel : IMapFrom<UnitModel>, IMapTo<UnitModel>
     {
         [Required]
         public string Brand { get; set; }
@@ -19,7 +19,5 @@
         [Required]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
-
-        public IEnumerable<SelectListItem> Categories { get; set; }
     }
 }

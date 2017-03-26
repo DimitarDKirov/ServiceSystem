@@ -4,10 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.DateProvider;
+using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
-namespace ServiceSystem.Web.ViewModels.CreateOrder
+namespace ServiceSystem.Web.ViewModels.Order
 {
-    public class OrderCreateModel
+    public class OrderCreateModel : IMapFrom<OrderModel>, IMapTo<OrderModel>
     {
         [Display(Name = "Warranty")]
         [EnumDataType(typeof(WarrantyStatus), ErrorMessage = "Warranty status is required")]
@@ -31,7 +33,7 @@ namespace ServiceSystem.Web.ViewModels.CreateOrder
 
         public UnitCreateModel Unit { get; set; }
 
-        public CustomerCreateModel Customer { get; set; }
+        public CustomerViewCreateModel Customer { get; set; }
 
         public static ValidationResult CheckDate(DateTime? warrantyDate, ValidationContext context)
         {

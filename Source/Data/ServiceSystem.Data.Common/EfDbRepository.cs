@@ -42,9 +42,9 @@ namespace ServiceSystem.Data.Common
             return this.All().FirstOrDefault(x => x.Id == id);
         }
 
-        public void Add(T entity)
+        public T Add(T entity)
         {
-            this.dbSet.Add(entity);
+            return this.dbSet.Add(entity);
         }
 
         public void Delete(T entity)

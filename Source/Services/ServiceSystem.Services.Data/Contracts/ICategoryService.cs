@@ -3,7 +3,7 @@ using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Services.Data.Contracts
 {
-    public interface ICategoriesService
+    public interface ICategoryService
     {
         IEnumerable<CategoryModel> GetAll();
 
@@ -13,6 +13,6 @@ namespace ServiceSystem.Services.Data.Contracts
 
         void Delete(CategoryModel category);
 
-        CategoryModel Create(string name, decimal minPrice, decimal maxPrice);
+        void Create(string name, decimal minPrice, decimal maxPrice);
     }
 }

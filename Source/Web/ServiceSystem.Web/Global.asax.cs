@@ -27,7 +27,7 @@ namespace ServiceSystem.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
+            autoMapperConfig.Execute(new[] { Assembly.GetExecutingAssembly(), Assembly.GetAssembly(typeof(Services.Data.Models.CategoryModel)) });
         }
     }
 }

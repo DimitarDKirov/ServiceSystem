@@ -8,6 +8,8 @@
     using ViewModels;
     using ViewModels.ViewOrder;
     using ServiceSystem.Infrastructure;
+    using Services.Data.Contracts;
+    using ViewModels.Order;
 
     [Authorize(Roles = GlobalConstants.AdministratorRoleName + "," + GlobalConstants.EngineerRoleName)]
     public class ViewOrderController : BaseController

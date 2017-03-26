@@ -1,4 +1,4 @@
-﻿namespace ServiceSystem.Services.Web
+﻿namespace ServiceSystem.Infrastructure.PublicCodeProvider
 {
     public interface IPublicCodeProvider
     {

@@ -1,9 +1,12 @@
-﻿namespace ServiceSystem.Services.Data
-{
-    using ServiceSystem.Data.Models;
+﻿using ServiceSystem.Data.Models;
+using ServiceSystem.Services.Data.Models;
 
+namespace ServiceSystem.Services.Data.Contracts
+{
     public interface IUnitService
     {
-        Unit Create(string brand, string model, string serialNumber, int categoryId);
+        //UnitModel Create(string brand, string model, string serialNumber, int categoryId);
+
+        Unit CreateDbModel(UnitModel model, string brandName);
     }
 }
