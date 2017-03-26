@@ -1,17 +1,18 @@
-﻿namespace ServiceSystem.Web.Controllers
-{
-    using System.Linq;
-    using System.Web.Mvc;
-    using Services.Data;
-    using Services.Data.Contracts;
+﻿using System.Linq;
+using System.Web.Mvc;
+using Bytes2you.Validation;
+using ServiceSystem.Services.Data.Contracts;
 
+namespace ServiceSystem.Web.Controllers
+{
     public class BrandsController : BaseController
     {
         private IBrandsService brandsService;
 
-        public BrandsController(IBrandsService brands)
+        public BrandsController(IBrandsService brandsService)
         {
-            this.brandsService = brands;
+            Guard.WhenArgument(brandsService, "brandsService").IsNull().Throw();
+            this.brandsService = brandsService;
         }
 
         public JsonResult Find(string brand)

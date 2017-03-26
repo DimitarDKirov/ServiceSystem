@@ -49,6 +49,8 @@ namespace ServiceSystem.Services.Data
 
         public OrderModel Create(OrderModel orderModel)
         {
+            Guard.WhenArgument(orderModel, "orderModel").IsNull().Throw();
+
             var customerModel = orderModel.Customer;
             var customer = this.customerService.CreateDbModel(customerModel);
 

@@ -113,6 +113,8 @@
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\GetById_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\UnitServiceTests\Constructor_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\UnitServiceTests\CreateDbModel_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Controllers\BrandsControllerTests\Constructor_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Controllers\BrandsControllerTests\Find_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Add_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Constructor_Should.cs" />
   </ItemGroup>

@@ -234,5 +234,28 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
             //Assert
             mockedSaveChagesRepo.Verify(sc => sc.SaveChanges(), Times.Exactly(2));
         }
+
+        [TestMethod]
+        public void Throw_WhenOrderModelIsNull()
+        {
+            //Arrange
+            var mockedOrderRepo = new Mock<IEfDbRepository<Order>>();
+            var mockedSaveChagesRepo = new Mock<IEfDbRepositorySaveChanges>();
+            var mockedMappingService = new Mock<IMappingService>();
+            var mockedUnitService = new Mock<IUnitService>();
+            var mockedCustomerService = new Mock<ICustomerService>();
+            var mockedPublicCodeProvider = new Mock<IPublicCodeProvider>();
+
+            var testedService = new OrderService(
+               mockedOrderRepo.Object,
+               mockedSaveChagesRepo.Object,
+               mockedMappingService.Object,
+               mockedUnitService.Object,
+               mockedCustomerService.Object,
+               mockedPublicCodeProvider.Object);
+
+            //Act & Assert
+            Assert.ThrowsException<ArgumentNullException>(() => testedService.Create(null));
+        }
     }
 }
