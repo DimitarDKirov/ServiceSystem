@@ -8,6 +8,9 @@ using ServiceSystem.Infrastructure.PublicCodeProvider;
 using ServiceSystem.Services.Data.Contracts;
 using ServiceSystem.Services.Data.Models;
 using ServiceSystem.Web.ViewModels.Order;
+using ServiceSystem.Data.Models;
+using Microsoft.AspNet.Identity;
+using Bytes2you.Validation;
 
 namespace ServiceSystem.Web.Controllers
 {
@@ -17,10 +20,13 @@ namespace ServiceSystem.Web.Controllers
         private ICategoryService categoryService;
         private IOrderService orderService;
 
-        public OrderController(ICategoryService categoryService, IOrderService orders)
+        public OrderController(ICategoryService categoryService, IOrderService ordersService)
         {
+            Guard.WhenArgument(categoryService, "categoryService").IsNull().Throw();
+            Guard.WhenArgument(ordersService, "ordersService").IsNull().Throw();
+
             this.categoryService = categoryService;
-            this.orderService = orders;
+            this.orderService = ordersService;
         }
 
         public ActionResult Add()
@@ -48,6 +54,7 @@ namespace ServiceSystem.Web.Controllers
             try
             {
                 var orderModel = this.Mapper.Map<OrderModel>(model);
+                orderModel.UserId = this.User.Identity.GetUserId();
                 orderCreated = this.orderService.Create(orderModel);
             }
             catch (Exception)
@@ -73,6 +80,25 @@ namespace ServiceSystem.Web.Controllers
             }
 
             var orderViewModel = this.Mapper.Map<OrderViewModel>(order);
+            return this.View(orderViewModel);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var order = this.orderService.GetById(id);
+            if (order == null)
+            {
+                this.TempData["Error"] = "Order can not be found";
+                this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return this.View("Error");
+            }
+
+            var orderViewModel = this.Mapper.Map<OrderViewModel>(order);
+            bool isEditable = orderViewModel.Status != Status.Pending
+                && orderViewModel.Status != Status.Delivered
+                && order.UserId == this.User.Identity.GetUserId();
+
+            orderViewModel.IsEditable = isEditable;
             return this.View(orderViewModel);
         }
 

@@ -117,6 +117,8 @@
     <Compile Include="ServiceSystem.Web.Tests\Controllers\BrandsControllerTests\Find_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Add_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Constructor_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Details_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Slip_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\ServiceSystem.Data.Common\ServiceSystem.Data.Common.csproj">

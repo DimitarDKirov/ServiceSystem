@@ -127,7 +127,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
         }
 
         [TestMethod]
-        public void CallEfRepositoryAddWithOrderModel()
+        public void CallEfRepositoryAddWithOrderModelAndStatusSetToPending()
         {
             //Arrange
             var brandName = "brand";
@@ -178,7 +178,7 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
             testedService.Create(orderModelStub);
 
             //Assert
-            mockedOrderRepo.Verify(or => or.Add(It.Is<Order>(o => o == orderStub && o.Customer == customerStub && o.Unit == unitStub)));
+            mockedOrderRepo.Verify(or => or.Add(It.Is<Order>(o => o == orderStub && o.Customer == customerStub && o.Unit == unitStub && o.Status == Status.Pending)));
         }
 
         [TestMethod]

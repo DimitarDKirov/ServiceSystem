@@ -58,6 +58,7 @@ namespace ServiceSystem.Services.Data
             var unit = this.unitService.CreateDbModel(unitModel, unitModel.Brand);
 
             var order = this.mappingService.Map<Order>(orderModel);
+            order.Status = Status.Pending;
             order.Unit = unit;
             order.Customer = customer;
             var storedOrder = this.ordersRepo.Add(order);

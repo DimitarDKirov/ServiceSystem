@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
 
@@ -17,6 +18,8 @@ namespace ServiceSystem.Services.Data.Models
         public DateTime? DeliverDate { get; set; }
 
         public string UserId { get; set; }
+
+        //public string User { get; set; }
 
         public string ProblemDescription { get; set; }
 
