@@ -15,7 +15,7 @@
             string url = "/Order/Grid";
             var routeCollection = new RouteCollection();
             RouteConfig.RegisterRoutes(routeCollection);
-            routeCollection.ShouldMap(url).To<OrdersGridController>(c => c.Index());
+            routeCollection.ShouldMap(url).To<OrdersController>(c => c.Index());
         }
     }
 }

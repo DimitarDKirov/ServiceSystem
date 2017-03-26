@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Services.Data.Models;
 
@@ -17,6 +18,8 @@ namespace ServiceSystem.Services.Data.Contracts
         OrderModel Update(OrderModel order);
 
         IEnumerable<OrderModel> GetAll();
+
+        IQueryable<OrderModel> GetAsQuaryable();
 
         void Delete(int id);
 

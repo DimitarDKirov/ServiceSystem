@@ -235,7 +235,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\OrdersGridController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
@@ -245,14 +245,12 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\CommonDetailsViewModel.cs" />
     <Compile Include="ViewModels\ListOrders\ListedOrderViewModel.cs" />
     <Compile Include="ViewModels\ListOrders\ListedUnitViewModel.cs" />
     <Compile Include="ViewModels\ListOrders\ListOrdersViewModel.cs" />
-    <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Order\CustomerViewCreateModel.cs" />
     <Compile Include="ViewModels\Order\OrderCreateModel.cs" />
-    <Compile Include="ViewModels\OrdersGrid\OrdersGridViewModel.cs" />
+    <Compile Include="ViewModels\Orders\OrdersGridViewModel.cs" />
     <Compile Include="ViewModels\Order\OrderUpdateModel.cs" />
     <Compile Include="ViewModels\Order\UnitCreateModel.cs" />
     <Compile Include="ViewModels\ViewOrder\OrderDetailsViewModel.cs" />
@@ -528,7 +526,7 @@
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
-    <Content Include="Views\OrdersGrid\Index.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Shared\_AdminPartial.cshtml" />
     <Content Include="Views\Shared\_EngineersPartial.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -560,7 +558,7 @@
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\OrdersAdmin\" />
-    <Folder Include="Views\Orders\" />
+    <Folder Include="Views\OrdersGrid\" />
     <Folder Include="Views\UpdateOrder\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
-﻿namespace ServiceSystem.Web.Controllers
-{
-    using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
+namespace ServiceSystem.Web.Controllers
+{
     public class HomeController : BaseController
     {
         public ActionResult Index()

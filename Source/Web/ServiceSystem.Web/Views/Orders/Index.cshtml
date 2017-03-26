@@ -1,6 +1,6 @@
 ﻿<h2>All orders</h2>
 
-@(Html.Kendo().Grid<ServiceSystem.Web.ViewModels.OrdersGrid.OrdersGridViewModel>()
+@(Html.Kendo().Grid<ServiceSystem.Web.ViewModels.Orders.OrdersGridViewModel>()
     .Name("grid")
     .Columns(columns =>
     {
@@ -32,7 +32,7 @@
     .DataSource(dataSource => dataSource
     .Ajax()
     .PageSize(5)
-    .Read(read => read.Action("Orders_Read", "OrdersGrid"))
+    .Read(read => read.Action("OrdersRead", "Orders"))
     )
 )
 
@@ -40,7 +40,7 @@
     <script>
         function showDetails(e) {
             var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-            document.location = "/Order/View/Details/" + dataItem.Id;
+            document.location = "/order/details/" + dataItem.Id;
         }
     </script>
-    }
+}

@@ -3,24 +3,27 @@ using System.ComponentModel.DataAnnotations;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
 using ServiceSystem.Services.Data.Models;
-using ServiceSystem.Web.ViewModels.Order;
 
-namespace ServiceSystem.Web.ViewModels
+namespace ServiceSystem.Web.ViewModels.Orders
 {
-    public class CommonDetailsViewModel : IMapFrom<OrderModel>
+    public class OrdersGridViewModel : IMapFrom<OrderModel>
     {
-        public UnitViewModel Unit { get; set; }
-
-        public CustomerViewCreateModel Customer { get; set; }
-
         [Display(Name = "Order number")]
         public int Id { get; set; }
 
         [Display(Name = "Accepted at")]
         public DateTime CreatedOn { get; set; }
 
+        [Display(Name = "PublicKey")]
+        public string OrderPublicId { get; set; }
+
         [Display(Name = "Warranty")]
         public WarrantyStatus WarrantyStatus { get; set; }
+
+        [Display(Name = "Warranty card")]
+        public string WarrantyCard { get; set; }
+
+        public DateTime? WarrantyDate { get; set; }
 
         public Status Status { get; set; }
 
@@ -32,5 +35,15 @@ namespace ServiceSystem.Web.ViewModels
 
         [Display(Name = "Delivery date")]
         public DateTime? DeliverDate { get; set; }
+
+        [Display(Name = "Problem")]
+        [DataType(DataType.MultilineText)]
+        public string ProblemDescription { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        public string Solution { get; set; }
+
+        [Display(Name = "Price")]
+        public decimal LabourPrice { get; set; }
     }
 }

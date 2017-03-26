@@ -109,6 +109,13 @@ namespace ServiceSystem.Services.Data
                 .ToList();
         }
 
+        public IQueryable<OrderModel> GetAsQuaryable()
+        {
+            return this.ordersRepo
+                 .All()
+                 .To<OrderModel>();
+        }
+
         public OrderModel GetById(int id)
         {
             var order = this.ordersRepo.GetById(id);
