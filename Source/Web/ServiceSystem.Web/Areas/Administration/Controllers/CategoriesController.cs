@@ -15,7 +15,6 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
     public class CategoriesController : BaseController
     {
         private ICategoryService categoriesService;
-        private ICacheService cacheService;
 
         public CategoriesController(ICategoryService categoriesService)
         {
@@ -26,7 +25,7 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
         public ActionResult Index()
         {
             var categories = this.categoriesService.GetAll();
-            var models = this.Mapper.Map<ICollection<CategoriesViewModel>>(categories);
+            var models = this.Mapper.Map<IEnumerable<CategoriesViewModel>>(categories);
 
             return this.View(models);
         }
