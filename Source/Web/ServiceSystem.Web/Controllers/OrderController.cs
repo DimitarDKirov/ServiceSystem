@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Bytes2you.Validation;
+using Microsoft.AspNet.Identity;
+using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure;
 using ServiceSystem.Infrastructure.PublicCodeProvider;
 using ServiceSystem.Services.Data.Contracts;
 using ServiceSystem.Services.Data.Models;
 using ServiceSystem.Web.ViewModels.Order;
-using ServiceSystem.Data.Models;
-using Microsoft.AspNet.Identity;
-using Bytes2you.Validation;
 
 namespace ServiceSystem.Web.Controllers
 {

@@ -60,17 +60,18 @@ namespace ServiceSystem.Services.Data
                 .ToList();
         }
 
-        public CategoryModel UpdateById(int id, string name, decimal minPrice, decimal maxPrice)
+        public CategoryModel Update(CategoryModel model)
         {
-            var category = this.categoriesRepo.GetById(id);
+            var category = this.categoriesRepo.GetById(model.Id);
             if (category == null)
             {
                 throw new ArgumentException("Category can not be found");
             }
 
-            category.Name = name;
-            category.MinPrice = minPrice;
-            category.MaxPrice = maxPrice;
+            category.Name = model.Name;
+            category.MinPrice = model.MinPrice;
+            category.MaxPrice = model.MaxPrice;
+            this.categoriesRepo.Update(category);
             this.efRepoSaveChanges.SaveChanges();
             return this.mappingService.Map<CategoryModel>(category);
         }

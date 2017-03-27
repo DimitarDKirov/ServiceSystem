@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Web.Areas.Administration.Models.Categories
 {
-    public class CategoriesViewModel : IMapFrom<Category>
+    public class CategoriesViewModel : IMapFrom<CategoryModel>
     {
         public int Id { get; set; }
 

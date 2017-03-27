@@ -1,6 +1,9 @@
 ﻿@if (this.User.IsInRole(ServiceSystem.Infrastructure.GlobalConstants.AdministratorRoleName))
 {
-    <ul class="nav navbar-nav navbar-right">
-       <li>@Html.ActionLink("Administration", "Index", "Administration", new { area = "Administration" }, null)</li>
+    <ul class="nav navbar-nav">
+        @*<li>@Html.ActionLink("Administration", "Index", "Administration", new { area = "Administration" }, null)</li>*@
+        <li>@Html.ActionLink("Manage role Engineer", "Index", "Users", new { area = "Administration" }, null )</li>
+        @*<li>@Html.ActionLink("Manage orders", "Index", "Orders")</li>*@
+        <li>@Html.ActionLink("Manage categories", "Index", "Categories", new { area = "Administration" }, null)</li>
     </ul>
 }

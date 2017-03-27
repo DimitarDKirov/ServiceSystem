@@ -9,7 +9,7 @@ namespace ServiceSystem.Services.Data.Contracts
 
         CategoryModel Find(int id);
 
-        CategoryModel UpdateById(int id, string name, decimal minPrice, decimal maxPrice);
+        CategoryModel Update(CategoryModel model);
 
         void Delete(CategoryModel category);
 

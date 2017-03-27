@@ -19,6 +19,12 @@
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                         "~/Scripts/Kendo/kendo.all.min.js",
                         "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
+            //            "~/Scripts/Kendo/kendo.datepicker.min.js",
+            //            "~/Scripts/Kendo/kendo.datetimepicker.min.js",
+            //            "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/kendogrid").Include(
+            //            "~/Scripts/Kendo/kendo.grid.min.js",
+            //            "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)

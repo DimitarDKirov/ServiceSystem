@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Net;
 using System.Web.Mvc;
 using ServiceSystem.Infrastructure;
 using ServiceSystem.Services.Data.Contracts;
@@ -8,7 +6,8 @@ using ServiceSystem.Services.Data.Models;
 using ServiceSystem.Services.Web;
 using ServiceSystem.Web.Areas.Administration.Models.Categories;
 using ServiceSystem.Web.Controllers;
-using ServiceSystem.Infrastructure.Mapping;
+using System.Collections.Generic;
+using Bytes2you.Validation;
 
 namespace ServiceSystem.Web.Areas.Administration.Controllers
 {
@@ -18,31 +17,22 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
         private ICategoryService categoriesService;
         private ICacheService cacheService;
 
-        public CategoriesController(ICategoryService categories)
+        public CategoriesController(ICategoryService categoriesService)
         {
-            this.categoriesService = categories;
+            Guard.WhenArgument(categoriesService, "categoriesService").IsNull().Throw();
+            this.categoriesService = categoriesService;
         }
 
         public ActionResult Index()
         {
-            // TODO remove AsDueryable
-            var categories = this.categoriesService
-                .GetAll()
-                .AsQueryable()
-                .To<CategoriesViewModel>()
-                .ToList();
+            var categories = this.categoriesService.GetAll();
+            var models = this.Mapper.Map<ICollection<CategoriesViewModel>>(categories);
 
-            return this.View(categories);
+            return this.View(models);
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                this.TempData["Error"] = "Wrong search data";
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
             CategoryModel category = this.categoriesService.Find((int)id);
             if (category == null)
             {
@@ -67,9 +57,10 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
                 return this.View(model);
             }
 
+            var categoryModel = this.Mapper.Map<CategoryModel>(model);
             try
             {
-                this.categoriesService.UpdateById(model.Id, model.Name, model.MinPrice, model.MaxPrice);
+                this.categoriesService.Update(categoryModel);
             }
             catch (Exception ex)
             {
@@ -144,8 +135,7 @@ namespace ServiceSystem.Web.Areas.Administration.Controllers
 
         private void InvalidateCache()
         {
-            this.Cache.Remove("PricesPublic");
-            this.Cache.Remove("categoriesCombo");
+            this.Cache.Remove("categories");
         }
     }
 }

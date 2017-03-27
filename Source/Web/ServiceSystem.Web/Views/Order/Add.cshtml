@@ -113,12 +113,13 @@
                 @Html.ValidationMessageFor(m => m.ProblemDescription)
             </div>
         </div>
-            <input type="Submit" value="Create" class="btn btn-primary" />
+        <input type="Submit" value="Create" class="btn btn-primary" />
     }
 </div>
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/kendo")
     <script>
         function onAutoComplete() {
             return {

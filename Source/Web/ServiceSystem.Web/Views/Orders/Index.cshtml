@@ -37,10 +37,11 @@
 )
 
 @section scripts{
-    <script>
-        function showDetails(e) {
-            var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-            document.location = "/order/details/" + dataItem.Id;
-        }
-    </script>
+    @Scripts.Render("~/bundles/kendo")
+        <script>
+            function showDetails(e) {
+                var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+                document.location = "/order/details/" + dataItem.Id;
+            }
+        </script>
 }
