@@ -53,10 +53,10 @@ namespace ServiceSystem.UnitTests.ServiceSystem.Services.Data.Tests.OrderService
                 mockedCustomerService.Object,
                 mockedPublicCodeProvider.Object);
 
-            //Act
+            // Act
             var result = testedService.GetAsQuaryable();
 
-            //Assert
+            // Assert
             Assert.AreEqual(objects[0].Id, result.First().Id);
             Assert.AreEqual(objects[1].Id, result.Last().Id);
         }

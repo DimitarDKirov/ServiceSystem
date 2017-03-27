@@ -2,10 +2,11 @@
 using AutoMapper;
 using ServiceSystem.Data.Models;
 using ServiceSystem.Infrastructure.Mapping.Contracts;
+using ServiceSystem.Services.Data.Models;
 
 namespace ServiceSystem.Web.Areas.Public.Models.OrderStatus
 {
-    public class UnitViewModel : IMapFrom<Unit>, IHaveCustomMappings
+    public class UnitViewModel : IMapFrom<UnitModel>, IHaveCustomMappings
     {
         public string Brand { get; set; }
 

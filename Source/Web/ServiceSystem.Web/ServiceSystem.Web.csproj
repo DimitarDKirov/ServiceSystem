@@ -231,7 +231,6 @@
     <Compile Include="Controllers\ListOrdersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
-    <Compile Include="Controllers\ViewOrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -253,7 +252,6 @@
     <Compile Include="ViewModels\Orders\OrdersGridViewModel.cs" />
     <Compile Include="ViewModels\Order\OrderUpdateModel.cs" />
     <Compile Include="ViewModels\Order\UnitCreateModel.cs" />
-    <Compile Include="ViewModels\ViewOrder\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\UpdateOrder\UpdateOrderModel.cs" />
     <Compile Include="ViewModels\Order\OrderViewModel.cs" />
     <Compile Include="ViewModels\Order\UnitViewModel.cs" />
@@ -521,7 +519,6 @@
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
     <Content Include="Views\ListOrders\Pending.cshtml" />
-    <Content Include="Views\ViewOrder\Details.cshtml" />
     <Content Include="Views\Shared\_OrderViewPartial.cshtml" />
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />

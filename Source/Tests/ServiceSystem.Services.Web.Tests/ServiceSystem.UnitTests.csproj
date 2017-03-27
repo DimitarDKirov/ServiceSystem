@@ -116,6 +116,10 @@
     <Compile Include="ServiceSystem.Services.Data.Tests\OrderServiceTests\Update_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\UnitServiceTests\Constructor_Should.cs" />
     <Compile Include="ServiceSystem.Services.Data.Tests\UnitServiceTests\CreateDbModel_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Areas\Public\Controllers\OrderStatusControllerTests\Contructor_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Areas\Public\Controllers\OrderStatusControllerTests\Index_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Areas\Public\Controllers\PricesControllerTests\Constructor_Should.cs" />
+    <Compile Include="ServiceSystem.Web.Tests\Areas\Public\Controllers\PricesControllerTests\Index_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\BrandsControllerTests\Constructor_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\BrandsControllerTests\Find_Should.cs" />
     <Compile Include="ServiceSystem.Web.Tests\Controllers\OrderControllerTests\Add_Should.cs" />

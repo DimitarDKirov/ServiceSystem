@@ -1,34 +1,32 @@
-﻿namespace ServiceSystem.Web.Areas.Public.Controllers
-{
-    using System.Linq;
-    using System.Web.Mvc;
-    using Infrastructure.Mapping;
-    using Models.Prices;
-    using Services.Data;
-    using Web.Controllers;
-    using Services.Data.Contracts;
-    using ServiceSystem.Infrastructure.Mapping;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using Bytes2you.Validation;
+using ServiceSystem.Services.Data.Contracts;
+using ServiceSystem.Web.Areas.Public.Models.Prices;
+using ServiceSystem.Web.Controllers;
 
+namespace ServiceSystem.Web.Areas.Public.Controllers
+{
     public class PricesController : BaseController
     {
         private ICategoryService categoriesService;
 
         public PricesController(ICategoryService service)
         {
+            Guard.WhenArgument(service, "service").IsNull().Throw();
             this.categoriesService = service;
         }
 
         public ActionResult Index()
         {
-            // TODO remove asQuerabley
-            var prices = this.Cache.Get(
-                "PricesPublic",
-                () => this.categoriesService
-                .GetAll()
-                .AsQueryable()
-                .To<PricesViewModel>()
-                .ToList(),
-                24 * 60 * 60);
+            var categories =
+                this.Cache.Get(
+                    "categories",
+                    () => this.categoriesService
+                        .GetAll(),
+                    24 * 60 * 60);
+
+            var prices = this.Mapper.Map<IEnumerable<PricesViewModel>>(categories);
 
             return this.View(prices);
         }

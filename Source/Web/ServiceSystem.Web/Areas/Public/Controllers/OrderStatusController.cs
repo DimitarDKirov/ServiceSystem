@@ -8,15 +8,18 @@
     using Web.Controllers;
     using Services.Data.Contracts;
     using Infrastructure.PublicCodeProvider;
+    using Bytes2you.Validation;
 
     public class OrderStatusController : BaseController
     {
-        private IPublicCodeProvider coder;
+        private IPublicCodeProvider coderService;
         private IOrderService orderService;
 
-        public OrderStatusController(IPublicCodeProvider coder, IOrderService orderService)
+        public OrderStatusController(IPublicCodeProvider coderService, IOrderService orderService)
         {
-            this.coder = coder;
+            Guard.WhenArgument(coderService, "coderService").IsNull().Throw();
+            Guard.WhenArgument(orderService, "orderService").IsNull().Throw();
+            this.coderService = coderService;
             this.orderService = orderService;
         }
 
@@ -33,7 +36,7 @@
             int orderId;
             try
             {
-                orderId = this.coder.Decode(input.UserInput);
+                orderId = this.coderService.Decode(input.UserInput);
             }
             catch (Exception)
             {
