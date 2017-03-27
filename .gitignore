@@ -234,3 +234,5 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/Source/Web/ServiceSystem.Web/Libraries/Kendo.Mvc.dll
+/Source/Web/ServiceSystem.Web/Content/imgs/Thumbs.db
